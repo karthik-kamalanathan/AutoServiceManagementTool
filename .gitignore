@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/ASMT.Application/bin/
+/ASMT.Application/obj/
+/ASMT.Dataprovider/bin/
+/ASMT.Dataprovider/obj/
+/ASMT.Database/obj/
+/ASMT.Database/bin/
+/ASMT.UI/obj
+/ASMT.UI/bin
+/ASMT.Database/ASMT.Database.jfm
+/ASMT.Database/ASMT.Database.dbmdl

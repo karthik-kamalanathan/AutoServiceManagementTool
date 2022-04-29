@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASMT.Dataprovider", "ASMT.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASMT.UI", "ASMT.UI\ASMT.UI.csproj", "{3A5FFB09-71FE-4FA1-87D6-622FBCA7757A}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ASMT.Database", "ASMT.Database\ASMT.Database.sqlproj", "{048F10A9-9EBD-4C27-86D3-A3B1476CC447}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,12 @@ Global
 		{3A5FFB09-71FE-4FA1-87D6-622FBCA7757A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A5FFB09-71FE-4FA1-87D6-622FBCA7757A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A5FFB09-71FE-4FA1-87D6-622FBCA7757A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{048F10A9-9EBD-4C27-86D3-A3B1476CC447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{048F10A9-9EBD-4C27-86D3-A3B1476CC447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{048F10A9-9EBD-4C27-86D3-A3B1476CC447}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{048F10A9-9EBD-4C27-86D3-A3B1476CC447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{048F10A9-9EBD-4C27-86D3-A3B1476CC447}.Release|Any CPU.Build.0 = Release|Any CPU
+		{048F10A9-9EBD-4C27-86D3-A3B1476CC447}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

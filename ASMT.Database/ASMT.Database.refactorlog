@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="77a5483f-c4d1-4de2-a127-1860a73a1963" ChangeDateTime="04/29/2022 17:42:22">
+    <Property Name="ElementName" Value="[dbo].[Bookings].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Bookings]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BookingId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="dc6e7346-d158-4a5d-8709-f96a719b6bec" ChangeDateTime="04/29/2022 17:51:18">
+    <Property Name="ElementName" Value="[dbo].[ServiceProviders].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ServiceProviders]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LocationId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="13b59661-f461-465d-b3af-de72b79770c2" ChangeDateTime="04/29/2022 17:56:28">
+    <Property Name="ElementName" Value="[dbo].[Bookings].[ServiceType]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Bookings]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PickUp" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="75f8447e-48a5-48fd-a972-a45fec9154be" ChangeDateTime="04/29/2022 17:57:19">
+    <Property Name="ElementName" Value="[dbo].[Bookings].[ServiceInstruction]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Bookings]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PickUpAddress" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0819bbe8-f2ae-486e-985b-acb711059c31" ChangeDateTime="04/29/2022 18:02:21">
+    <Property Name="ElementName" Value="[dbo].[Services].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Services]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BookingId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="128a571b-ee0c-422f-833f-6995e332f483" ChangeDateTime="04/29/2022 18:04:12">
+    <Property Name="ElementName" Value="[dbo].[Services].[OilChange]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Services]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="EngineOilChange" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1e29196d-7442-4335-abc1-935cb318769b" ChangeDateTime="04/29/2022 18:05:23">
+    <Property Name="ElementName" Value="[dbo].[Services].[FTyreChange]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Services]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TyreChange" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="fc24b4f9-0bc4-44b5-9e04-0bf609d541c8" ChangeDateTime="04/29/2022 18:13:42">
+    <Property Name="ElementName" Value="[dbo].[ServiceStatus].[ServiceInstructions]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ServiceStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OtherReqDone" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9973312e-e698-40de-9b85-49951398b0f7" ChangeDateTime="04/29/2022 18:14:21">
+    <Property Name="ElementName" Value="[dbo].[ServiceStatus].[EngineOilChange]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ServiceStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsEngineOilChangeDone" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b23f1dd7-b239-474a-80d2-f10d3de82804" ChangeDateTime="04/29/2022 18:14:29">
+    <Property Name="ElementName" Value="[dbo].[ServiceStatus].[BreakOilChange]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ServiceStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsBreakOilChangeDone" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="60d5c44a-f1a4-4c2a-a5b2-f87d5a207a10" ChangeDateTime="04/29/2022 18:14:35">
+    <Property Name="ElementName" Value="[dbo].[ServiceStatus].[AirCheck]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ServiceStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsAirCheckDone" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4619b026-ae75-4998-a6bc-180c8eb39606" ChangeDateTime="04/29/2022 18:14:43">
+    <Property Name="ElementName" Value="[dbo].[ServiceStatus].[WaterWash]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ServiceStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsWaterWashDone" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ac9cc23d-b809-4e25-a853-edc9226e716e" ChangeDateTime="04/29/2022 18:14:50">
+    <Property Name="ElementName" Value="[dbo].[ServiceStatus].[WheelAlignment]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ServiceStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsWheelAlignmentDone" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1882a2e3-1d7f-451b-8b1e-354ac0a15623" ChangeDateTime="04/29/2022 18:14:56">
+    <Property Name="ElementName" Value="[dbo].[ServiceStatus].[TyreChange]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ServiceStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsTyreChangeDone" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="084ca461-ffdd-4f15-969f-59eef35eb644" ChangeDateTime="04/29/2022 18:15:01">
+    <Property Name="ElementName" Value="[dbo].[ServiceStatus].[PollutionCheck]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ServiceStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsPollutionCheckDone" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5180c4fb-258d-48c9-bf0b-e0b724f1c235" ChangeDateTime="04/29/2022 18:15:15">
+    <Property Name="ElementName" Value="[dbo].[ServiceStatus].[OtherReqDone]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ServiceStatus]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsOtherReqDoneDone" />
+  </Operation>
+</Operations>
