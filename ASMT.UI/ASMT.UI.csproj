@@ -148,7 +148,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ASMT.Application\ASMT.Application.csproj">
+      <Project>{47a5cb3a-61ca-4a45-ae8f-5eb6b500b356}</Project>
+      <Name>ASMT.Application</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>

@@ -4,11 +4,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Auto Service Management Tool</title>
+
     <!--External Resources-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
     <script type="text/javascript">
         function DisableBackButton() {
             ``
@@ -19,6 +22,8 @@
         window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
         window.onunload = function () { void (0) }
     </script>
+    <!--External Resources-->
+
 </head>
 <body>
     <!--Navigation bar-->
@@ -40,6 +45,8 @@
             </ul>
         </div>
     </nav>
+    <!--Navigation bar-->
+
     <!--Carousel Slides-->
     <div id="demo" class="carousel slide" data-ride="carousel">
         <ul class="carousel-indicators">
@@ -85,16 +92,18 @@
             <span class="carousel-control-next-icon"></span>
         </a>
     </div>
+    <!--Carousel Slides-->
 
     <!-- Forms -->
     <form id="form1" runat="server">
         <div>
+
             <!-- Modal Service Provider Sign In -->
             <div class="modal fade" id="SignIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="container modal-content">
                         <div class="modal-header">
-                            <h2>Service Provider Sign in</h2>
+                            <h4>Service Provider Sign in</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
@@ -115,13 +124,14 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal Service Provider Sign In -->
 
             <!-- Modal Book A Service -->
             <div class="modal fade" id="BookService" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="container modal-content">
                         <div class="modal-header">
-                            <h2>Book A Service</h2>
+                            <h4>Book A Service</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
@@ -172,13 +182,14 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal Book A Service -->
 
             <!-- Modal Track Service Status -->
             <div class="modal fade" id="TrackStatus" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="container modal-content">
                         <div class="modal-header">
-                            <h2>Track Service Status</h2>
+                            <h4>Track Service Status</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
@@ -190,10 +201,11 @@
                     </div>
                 </div>
             </div>
+            <!-- Modal Track Service Status -->
+
         </div>
     </form>
-    <br />
-    <br />
+
     <!-- Footer -->
     <footer class="page-footer font-small blue pt-4 mt-4">
         <div class="container-fluid text-center text-md-left">
@@ -215,5 +227,7 @@
             © 2022 Copyright: ASMT.Inc
         </div>
     </footer>
+    <!-- Footer -->
+
 </body>
 </html>
