@@ -41,16 +41,16 @@ namespace ASMT.Dataprovider
                 {
                     while (reader.Read())
                     {
-                        //booking.Id = Convert.ToInt32(reader["BookingId"]);
-                        //booking.LocationId = Convert.ToInt32(reader["LocationId"]);
-                        //booking.Name = reader["Name"].ToString();
-                        //booking.VehicleModel = reader["VehicleModel"].ToString();
-                        //booking.VehicleNumber = reader["VehicleNumber"].ToString();
-                        //booking.PickUpRequested = Convert.ToBoolean(reader["PickUp"]);
-                        //booking.PickUpAddress = reader["PickUpAddress"].ToString();
-                        //booking.DropRequested = Convert.ToBoolean(reader["Drop"]);
-                        //booking.DropAddress = reader["DropAddress"].ToString();
-                        //booking.CreatedDate = Convert.ToDateTime(reader["CreatedDate"].ToString());
+                        booking.Id = Convert.ToInt64(reader["BookingId"]);
+                        booking.Location = reader["LocationId"].ToString();
+                        booking.Name = reader["Name"].ToString();
+                        booking.VehicleModel = reader["VehicleModel"].ToString();
+                        booking.VehicleNumber = reader["VehicleNumber"].ToString();
+                        booking.PickUpRequested = reader["PickUp"].ToString() == "1" ? true : false;
+                        booking.PickUpAddress = reader["PickUpAddress"].ToString();
+                        booking.DropRequested = reader["Drop"].ToString() == "1" ? true : false;
+                        booking.DropAddress = reader["DropAddress"].ToString();
+                        booking.CreatedDate = Convert.ToDateTime(reader["CreatedDate"].ToString());
                     }
                 }
             }
@@ -107,7 +107,7 @@ namespace ASMT.Dataprovider
                 }
             }
 
-            return true;
+            return isCreated;
         }
 
     }
