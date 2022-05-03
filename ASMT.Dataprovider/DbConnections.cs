@@ -9,7 +9,7 @@ using ASMT.Dataprovider.Models;
 
 namespace ASMT.Dataprovider
 {
-    internal class DbConnections
+    public class DbConnections
     {
         private static readonly string conString;
         SqlConnection sqlCon;
@@ -75,22 +75,25 @@ namespace ASMT.Dataprovider
 
             try
             {
-                string sqlCommand = "";
+                string sqlCommand = "INSERT INTO [dbo].[Bookings]([BookingId], [LocationId], [Name], [VehicleNumber], [VehicleModel], [PickUp], [PickUpAddress], [Drop], [DropAddress], [CreatedDate])" +
+                                    "VALUES (@BookingId, @LocationId, @Name, @VehicleNumber, @VehicleModel, @PickUp, @PickUpAddress, @Drop, @DropAddress, @CreatedDate)";
 
                 var cmd = new SqlCommand(sqlCommand, sqlCon);
-                cmd.Parameters.AddWithValue("@BookingId", booking.Id);
-                cmd.Parameters.AddWithValue("@LocationId", booking.LocationId);
+                cmd.Parameters.AddWithValue("@BookingId", booking.Id.ToString());
+                cmd.Parameters.AddWithValue("@LocationId", booking.Location);
                 cmd.Parameters.AddWithValue("@Name", booking.Name);
-                cmd.Parameters.AddWithValue("@VehicleModel", booking.VehicleModel);
                 cmd.Parameters.AddWithValue("@VehicleNumber", booking.VehicleNumber);
-                cmd.Parameters.AddWithValue("@PickUp", booking.PickUpRequested);
+                cmd.Parameters.AddWithValue("@VehicleModel", booking.VehicleModel);
+                cmd.Parameters.AddWithValue("@PickUp", booking.PickUpRequested ? 1 : 0);
                 cmd.Parameters.AddWithValue("@PickUpAddress", booking.PickUpAddress);
-                cmd.Parameters.AddWithValue("@Drop", booking.DropRequested);
+                cmd.Parameters.AddWithValue("@Drop", booking.DropRequested ? 1 : 0);
                 cmd.Parameters.AddWithValue("@DropAddress", booking.DropAddress);
                 cmd.Parameters.AddWithValue("@CreatedDate", booking.CreatedDate.ToString());
 
                 sqlCon.Open();
 
+                cmd.ExecuteNonQuery();
+                isCreated = true;
             }
             catch (Exception ex)
             {
@@ -104,7 +107,7 @@ namespace ASMT.Dataprovider
                 }
             }
 
-            return isCreated;
+            return true;
         }
 
     }

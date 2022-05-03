@@ -159,6 +159,10 @@
       <Project>{92034604-e307-47db-95b1-754af6da6de9}</Project>
       <Name>ASMT.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ASMT.Dataprovider\ASMT.Dataprovider.csproj">
+      <Project>{0f2a1179-cb4a-432a-a6d6-c11ef71130fc}</Project>
+      <Name>ASMT.Dataprovider</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

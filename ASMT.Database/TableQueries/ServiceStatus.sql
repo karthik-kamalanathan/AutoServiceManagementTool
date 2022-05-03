@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[ServiceStatus]
 (
-	[BookingId] INT NOT NULL PRIMARY KEY,
+	[BookingId] NVARCHAR(50) NOT NULL PRIMARY KEY,
     [IsEngineOilChangeDone] BIT NULL , 
     [IsBreakOilChangeDone] BIT NULL, 
     [IsAirCheckDone] BIT NULL, 
@@ -9,5 +9,5 @@
     [IsTyreChangeDone] BIT NULL, 
     [IsPollutionCheckDone] BIT NULL, 
     [IsOtherReqDoneDone] BIT NULL, 
-    [OverallStatus] NCHAR(10) NOT NULL
+    [OverallStatus] NVARCHAR(50) NOT NULL
 )

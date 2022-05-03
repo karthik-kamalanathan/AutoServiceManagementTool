@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[ServiceProviders]
 (
-	[LocationId] INT NOT NULL PRIMARY KEY, 
-    [Username] NVARCHAR(15) NULL, 
-    [Password] NVARCHAR(15) NULL
+	[LocationId] NVARCHAR(50) NOT NULL PRIMARY KEY, 
+    [Username] NVARCHAR(15) NOT NULL, 
+    [Password] NVARCHAR(15) NOT NULL
 )

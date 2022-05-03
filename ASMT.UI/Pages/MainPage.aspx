@@ -22,6 +22,13 @@
         window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
         window.onunload = function () { void (0) }
     </script>
+
+    <script type="text/javascript">
+        function openSuccessModal() {
+            $('#bookingSuccess').modal('show');
+        }
+    </script>
+
     <!--External Resources-->
 
 </head>
@@ -194,7 +201,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <asp:TextBox type="text" class="form-control" ID="TextBox1" placeholder="Tracking ID" name="trackingId" runat="server" AutoCompleteType="Disabled" />
+                                <asp:TextBox type="text" class="form-control" ID="txtTrackingId" placeholder="Tracking ID" name="trackingId" runat="server" AutoCompleteType="Disabled" />
                             </div>
                             <asp:Button type="submit" class="btn btn-primary" runat="server" Text="Submit" OnClick="trackStatus_Click" />
                         </div>
@@ -202,6 +209,29 @@
                 </div>
             </div>
             <!-- Modal Track Service Status -->
+
+            <!-- Booking Success Modal -->
+            <div class="modal fade" id="bookingSuccess" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="container modal-content">
+                        <div class="modal-header">
+                            <h4>Service Booked Successfully</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <asp:Label class="form-check-label" runat="server">
+                                    <h5>Tracking Id</h5>
+                                    <asp:TextBox type="text" class="form-control" ID="txtBookingId" name="bookingId" runat="server" ReadOnly="true" />
+                                    <br />
+                                    Please, Use this id to track serive status. thank you.
+                                </asp:Label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Booking Success Modal -->
 
         </div>
     </form>

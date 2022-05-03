@@ -1,9 +1,9 @@
 ﻿CREATE TABLE [dbo].[Services]
 (
-	[BookingId] INT NOT NULL PRIMARY KEY, 
-    [VehicleType] CHAR(10) NOT NULL, 
-    [VehicleModel] NCHAR(12) NOT NULL, 
-    [ServiceType] NCHAR(10) NOT NULL, 
+	[BookingId] NVARCHAR(50) NOT NULL PRIMARY KEY, 
+    [VehicleType] NVARCHAR(50) NOT NULL, 
+    [VehicleModel] NVARCHAR(50) NOT NULL, 
+    [ServiceType] NVARCHAR(50) NOT NULL, 
     [EngineOilChange] BIT NULL , 
     [BreakOilChange] BIT NULL, 
     [AirCheck] BIT NULL, 

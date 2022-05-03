@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using ASMT.Dataprovider.Models;
+using ASMT.Application.Implementations;
+
 
 namespace ASMT.UI
 {
@@ -38,6 +41,29 @@ namespace ASMT.UI
         {
             try
             {
+                BookingService bookingService = new BookingService();
+
+                Booking booking = new Booking();
+                booking.Name = txtCustName.Text;
+                booking.VehicleNumber = txtAutoNum.Text;
+                booking.VehicleModel = txtAutoModel.Text;
+                booking.Location = txtLocId.Text;
+                booking.CreatedDate = DateTime.Now;
+                booking.PhNo = txtPhNum.Text;
+                booking.ServiceType = DropDownServiceType.Text;
+                booking.ServiceIntructions = txtInstructions.Text;
+
+                string bookingId = bookingService.BookAService(booking);
+
+                if(bookingId == string.Empty)
+                {
+                    throw new Exception();
+                }
+
+                txtBookingId.Text = bookingId;
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openSuccessModal();", true);
+
             }
             catch (Exception ex)
             {
