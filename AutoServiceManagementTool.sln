@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASMT.Application", "ASMT.Application\ASMT.Application.csproj", "{47A5CB3A-61CA-4A45-AE8F-5EB6B500B356}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ASMT.Dataprovider", "ASMT.Dataprovider\ASMT.Dataprovider.csproj", "{8B430693-FFE3-4BB0-B93D-AC67EE649A56}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASMT.UI", "ASMT.UI\ASMT.UI.csproj", "{3A5FFB09-71FE-4FA1-87D6-622FBCA7757A}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ASMT.Database", "ASMT.Database\ASMT.Database.sqlproj", "{048F10A9-9EBD-4C27-86D3-A3B1476CC447}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASMT.Application", "ASMT.Application\ASMT.Application.csproj", "{92034604-E307-47DB-95B1-754AF6DA6DE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASMT.Dataprovider", "ASMT.Dataprovider\ASMT.Dataprovider.csproj", "{0F2A1179-CB4A-432A-A6D6-C11EF71130FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,14 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{47A5CB3A-61CA-4A45-AE8F-5EB6B500B356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{47A5CB3A-61CA-4A45-AE8F-5EB6B500B356}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{47A5CB3A-61CA-4A45-AE8F-5EB6B500B356}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{47A5CB3A-61CA-4A45-AE8F-5EB6B500B356}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8B430693-FFE3-4BB0-B93D-AC67EE649A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8B430693-FFE3-4BB0-B93D-AC67EE649A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8B430693-FFE3-4BB0-B93D-AC67EE649A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8B430693-FFE3-4BB0-B93D-AC67EE649A56}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A5FFB09-71FE-4FA1-87D6-622FBCA7757A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3A5FFB09-71FE-4FA1-87D6-622FBCA7757A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A5FFB09-71FE-4FA1-87D6-622FBCA7757A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,6 +27,14 @@ Global
 		{048F10A9-9EBD-4C27-86D3-A3B1476CC447}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{048F10A9-9EBD-4C27-86D3-A3B1476CC447}.Release|Any CPU.Build.0 = Release|Any CPU
 		{048F10A9-9EBD-4C27-86D3-A3B1476CC447}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{92034604-E307-47DB-95B1-754AF6DA6DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92034604-E307-47DB-95B1-754AF6DA6DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92034604-E307-47DB-95B1-754AF6DA6DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92034604-E307-47DB-95B1-754AF6DA6DE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F2A1179-CB4A-432A-A6D6-C11EF71130FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F2A1179-CB4A-432A-A6D6-C11EF71130FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F2A1179-CB4A-432A-A6D6-C11EF71130FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F2A1179-CB4A-432A-A6D6-C11EF71130FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

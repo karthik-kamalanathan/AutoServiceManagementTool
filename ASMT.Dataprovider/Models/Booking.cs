@@ -1,4 +1,6 @@
-﻿namespace ASMT.Dataprovider.Models
+﻿using System;
+
+namespace ASMT.Dataprovider.Models
 {
     public class Booking
     {
@@ -9,8 +11,8 @@
         public string VehicleNumber { get; set; }
         public string VehicleModel { get; set; }
         public bool PickUpRequested { get; set; }
-        public string? PickUpAddress { get; set; }
+        public string PickUpAddress { get; set; }
         public bool DropRequested { get; set; }
-        public string? DropAddress { get; set; }
+        public string DropAddress { get; set; }
     }
 }
