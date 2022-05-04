@@ -30,7 +30,9 @@ namespace ASMT.Dataprovider
 
             try
             {
-                string sqlCommand = "";
+                string sqlCommand = "SELECT [BookingId], [LocationId], [Name], [VehicleNumber], [VehicleModel], [PickUp], [PickUpAddress], [Drop], [DropAddress], [CreatedDate] " +
+                                    "FROM[dbo].[Bookings] " + 
+                                    "WHERE[BookingId] = @BookingId";
 
                 var cmd = new SqlCommand(sqlCommand, sqlCon);
                 cmd.Parameters.AddWithValue("@BookingId", bookingId);
