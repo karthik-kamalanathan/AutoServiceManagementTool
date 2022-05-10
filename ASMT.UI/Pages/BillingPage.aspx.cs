@@ -16,6 +16,11 @@ namespace ASMT.UI
         {
             
         }
+
+        protected void checkoutClick(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
