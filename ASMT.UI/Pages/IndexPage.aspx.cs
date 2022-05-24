@@ -13,7 +13,7 @@ namespace ASMT.UI
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Response.Redirect("ErrorPage.aspx");
+                Response.Redirect("Pages/ErrorPage.aspx");
             }
         }
 
@@ -21,13 +21,14 @@ namespace ASMT.UI
         {
             try
             {
-                bool isAuthorized = false;
+                bool isAuthorized = true;
 
                 //Code to Validate Credentials
 
                 if (isAuthorized)
                 {
-                    Response.Redirect("DealerPage.aspx");
+                    Response.Redirect("Pages/DealerPage.aspx", false);
+                    Context.ApplicationInstance.CompleteRequest();
                 }
                 else
                 {
@@ -37,7 +38,7 @@ namespace ASMT.UI
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Response.Redirect("ErrorPage.aspx");
+                Response.Redirect("Pages/ErrorPage.aspx");
             }
         }
     }

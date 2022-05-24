@@ -16,9 +16,9 @@
 
     <!-- Bootstrap Reference -->
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
-    <script src="../Scripts/bootstrap.bundle.min.js"></script>
-    <script src="../Scripts/jquery-3.6.0.slim.js"></script>
     <script src="../Scripts/umd/popper.min.js"></script>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/jquery-3.6.0.slim.js"></script>    
     <script src="../Scripts/bootstrap.min.js"></script>
     <!-- Bootstrap Reference -->
 
@@ -38,6 +38,12 @@
         }
     </style>
 
+    <script>
+        var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
+            trigger: 'focus'
+        })
+    </script>
+
     <!-- Custom styles for this template -->
     <link href="../Content/heroes.css" rel="stylesheet">
     <link href="../Content/footers.css" rel="stylesheet">
@@ -52,8 +58,8 @@
             <p class="lead mb-4">Book Vehicle Service in Simple & Easy Steps, Best Service in Low Cost From Well Trained Mechanics with Certified Quality Spare Parts & No Delays, All in One Tool to Book Service or Maintenance for Your Vehicle with Features to Pay & Track Online.</p>
             <br />
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" onclick="location.href = 'BookingPage.aspx'">Book Service</button>
-                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" onclick="location.href = 'TrackingPage.aspx'">Track Service</button>
+                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" onclick="location.href = 'Pages/BookingPage.aspx'">Book Service</button>
+                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" onclick="location.href = 'Pages/TrackingPage.aspx'">Track Service</button>
                 <button type="button" class="btn btn-outline-secondary btn-lg px-4" data-bs-toggle="modal" data-bs-target="#modalSignin">Not a Customer?</button>
             </div>
         </div>
@@ -86,7 +92,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <a href="UnderConstructionPage.aspx" class="text-primary">Forgot Password?</a>
+                    <a role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="Link is Disabled" data-bs-content="Requested link or page is underconstruction" class="text-primary">Forgot Password?</a>
                 </div>
             </div>
         </div>
