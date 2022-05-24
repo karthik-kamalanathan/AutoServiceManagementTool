@@ -14,18 +14,6 @@
 
     <title>ASMT - Auto Service & Management Tool</title>
 
-    <!-- JavaScript Code to Disable Back Button in Browser -->
-    <script type="text/javascript">
-        function DisableBackButton() {
-            window.history.forward()
-        }
-        DisableBackButton();
-        window.onload = DisableBackButton;
-        window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
-        window.onunload = function () { void (0) }
-    </script>
-    <!-- JavaScript Code to Disable Back Button in Browser -->
-
     <!-- Bootstrap Reference -->
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
@@ -58,12 +46,14 @@
 <body>
 
     <div class="px-4 pt-5 my-5 text-center border-bottom">
+        <br />
         <h1 class="display-4 fw-bold">Auto Service & Management Tool</h1>
         <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">Book World Class Vehicle Service in Simple & Easy Steps, No Delays & Best Service in Low Cost, An Efficient Method to Book Service or Maintenance for Your Vehicle, Pay Online, Track Online, and Pickup & Drop on Your Door Front.</p>
+            <p class="lead mb-4">Book Vehicle Service in Simple & Easy Steps, Best Service in Low Cost From Well Trained Mechanics with Certified Quality Spare Parts & No Delays, All in One Tool to Book Service or Maintenance for Your Vehicle with Features to Pay & Track Online.</p>
+            <br />
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Book Service</button>
-                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Track Service</button>
+                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" onclick="location.href = 'BookingPage.aspx'">Book Service</button>
+                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" onclick="location.href = 'TrackingPage.aspx'">Track Service</button>
                 <button type="button" class="btn btn-outline-secondary btn-lg px-4" data-bs-toggle="modal" data-bs-target="#modalSignin">Not a Customer?</button>
             </div>
         </div>
@@ -96,7 +86,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <asp:HyperLink href="#" class="text-primary" runat="server">Forgot Password?</asp:HyperLink>
+                    <a href="UnderConstructionPage.aspx" class="text-primary">Forgot Password?</a>
                 </div>
             </div>
         </div>
@@ -124,26 +114,26 @@
 
     <!-- Footer -->
     <div class="container">
-        <footer class="py-1 my-3">
-            <div class="d-flex justify-content-between py-1 my-3">
+        <footer class="py-1 my-2">
+            <div class="d-flex justify-content-between py-1 my-2">
                 <p>&copy; 2021 sastra.edu . All rights reserved.</p>
                 <ul class="list-unstyled d-flex">
                     <li class="ms-3">
-                        <a class="link-dark" href="https://twitter.com/">
+                        <a class="link-dark" href="https://twitter.com/" target="_blank">
                             <svg class="bi" width="24" height="24">
                                 <use href="#twitter" />
                             </svg>
                         </a>
                     </li>
                     <li class="ms-3">
-                        <a class="link-dark" href="https://www.instagram.com/">
+                        <a class="link-dark" href="https://www.instagram.com/" target="_blank">
                             <svg class="bi" width="24" height="24">
                                 <use href="#instagram" />
                             </svg>
                         </a>
                     </li>
                     <li class="ms-3">
-                        <a class="link-dark" href="https://www.facebook.com/">
+                        <a class="link-dark" href="https://www.facebook.com/" target="_blank">
                             <svg class="bi" width="24" height="24">
                                 <use href="#facebook" />
                             </svg>

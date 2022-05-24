@@ -75,6 +75,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap-reboot.rtl.css" />
     <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-select.min.css" />
     <Content Include="Content\bootstrap-utilities.css" />
     <Content Include="Content\bootstrap-utilities.min.css" />
     <Content Include="Content\bootstrap-utilities.rtl.css" />
@@ -113,6 +114,7 @@
     <Content Include="Pages\ServicePage.aspx" />
     <Content Include="Pages\TrackingPage.aspx" />
     <Content Include="Pages\UnderConstructionPage.aspx" />
+    <Content Include="Scripts\bootstrap-select.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -129,6 +131,7 @@
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
     <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\form-validation.js" />
     <Content Include="Scripts\index.js.flow" />
     <Content Include="Scripts\esm\popper.min.js.map" />
     <Content Include="Scripts\esm\popper.js.map" />
@@ -304,10 +307,6 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ASMT.Application\ASMT.Application.csproj">
-      <Project>{92034604-e307-47db-95b1-754af6da6de9}</Project>
-      <Name>ASMT.Application</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ASMT.Dataprovider\ASMT.Dataprovider.csproj">
       <Project>{0f2a1179-cb4a-432a-a6d6-c11ef71130fc}</Project>
       <Name>ASMT.Dataprovider</Name>

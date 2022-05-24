@@ -15,16 +15,6 @@
     <!--External Resources-->
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
 
-    <script type="text/javascript">
-        function DisableBackButton() {
-            window.history.forward()
-        }
-        DisableBackButton();
-        window.onload = DisableBackButton;
-        window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
-        window.onunload = function () { void (0) }
-    </script>
-
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -163,7 +153,7 @@
 
                             <div class="col-md-3">
                                 <label for="zip" class="form-label">Pin code</label>
-                                <asp:TextBox type="text" class="form-control" ID="zip" placeholder="" name="zip" runat="server" AutoCompleteType="Disabled" required="required"/>
+                                <asp:TextBox type="text" class="form-control" ID="zip" placeholder="" name="zip" runat="server" AutoCompleteType="Disabled" required="required" />
                                 <div class="invalid-feedback">
                                     Pin code required.
                                 </div>
@@ -202,7 +192,7 @@
                         <div class="row gy-3">
                             <div class="col-md-6">
                                 <label for="ccname" class="form-label">Name on card</label>
-                                <asp:TextBox type="text" class="form-control" ID="ccname" placeholder="" name="ccname" runat="server" AutoCompleteType="Disabled" required="required"/>
+                                <asp:TextBox type="text" class="form-control" ID="ccname" placeholder="" name="ccname" runat="server" AutoCompleteType="Disabled" required="required" />
                                 <small class="text-muted">Full name as displayed on card</small>
                                 <div class="invalid-feedback">
                                     Name on card is required
@@ -211,7 +201,7 @@
 
                             <div class="col-md-6">
                                 <label for="ccnumber" class="form-label">Card number</label>
-                                <asp:TextBox type="text" class="form-control" ID="ccnumber" placeholder="" name="ccnumber" runat="server" AutoCompleteType="Disabled" required="required"/>
+                                <asp:TextBox type="text" class="form-control" ID="ccnumber" placeholder="" name="ccnumber" runat="server" AutoCompleteType="Disabled" required="required" />
                                 <div class="invalid-feedback">
                                     Credit card number is required
                                 </div>
@@ -219,7 +209,7 @@
 
                             <div class="col-md-3">
                                 <label for="ccexpiration" class="form-label">Expiration</label>
-                                <asp:TextBox type="text" class="form-control" ID="ccexpiration" placeholder="" name="ccexpiration" runat="server" AutoCompleteType="Disabled" required="required"/>
+                                <asp:TextBox type="text" class="form-control" ID="ccexpiration" placeholder="" name="ccexpiration" runat="server" AutoCompleteType="Disabled" required="required" />
                                 <div class="invalid-feedback">
                                     Expiration date required
                                 </div>
@@ -227,7 +217,7 @@
 
                             <div class="col-md-3">
                                 <label for="cccvv" class="form-label">CVV</label>
-                                <asp:TextBox type="text" class="form-control" ID="cccvv" placeholder="" name="cccvv" runat="server" AutoCompleteType="Disabled" required="required"/>
+                                <asp:TextBox type="text" class="form-control" ID="cccvv" placeholder="" name="cccvv" runat="server" AutoCompleteType="Disabled" required="required" />
                                 <div class="invalid-feedback">
                                     Security code required
                                 </div>
@@ -237,10 +227,9 @@
                         <hr class="my-4">
 
                         <asp:Button type="submit" class="w-100 btn btn-primary btn-lg" runat="server" Text="Continue to Checkout" OnClick="checkoutClick" />
+
+                        <asp:Button type="submit" class="w-100 btn btn-outline-secondary btn-lg my-4" Text="Go Back" runat="server" OnClick="goBackClick" />
                     </form>
-
-                    <button class="w-100 btn btn-outline-secondary btn-lg my-4" type="submit">Go Back</button>
-
                 </div>
             </div>
 

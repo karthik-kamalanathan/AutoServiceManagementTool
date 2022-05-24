@@ -56,17 +56,22 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="TableQueries" />
+    <Folder Include="CreateQueries" />
+    <Folder Include="ReadQueries" />
+    <Folder Include="UpdateQueries" />
+    <Folder Include="DeleteQueries" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="TableQueries\Bookings.sql" />
+    <Build Include="CreateQueries\Bookings.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ASMT.Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="TableQueries\ServiceProviders.sql" />
-    <Build Include="TableQueries\ServiceRequests.sql" />
-    <Build Include="TableQueries\ServiceStatus.sql" />
+    <Build Include="CreateQueries\ServiceProviders.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="CreateQueries\ServiceRequests.sql" />
+    <Build Include="CreateQueries\ServiceStatus.sql" />
   </ItemGroup>
 </Project>

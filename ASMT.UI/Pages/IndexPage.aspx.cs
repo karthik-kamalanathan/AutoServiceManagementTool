@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using ASMT.Dataprovider.Models;
-using ASMT.Application.Implementations;
 
 namespace ASMT.UI
 {
@@ -14,13 +6,39 @@ namespace ASMT.UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Response.Redirect("ErrorPage.aspx");
+            }
         }
 
         protected void signinClick(object sender, EventArgs e)
         {
-            
+            try
+            {
+                bool isAuthorized = false;
+
+                //Code to Validate Credentials
+
+                if (isAuthorized)
+                {
+                    Response.Redirect("DealerPage.aspx");
+                }
+                else
+                {
+                    //Display Invalid Credentials Error
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Response.Redirect("ErrorPage.aspx");
+            }
         }
     }
-
 }

@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbConnections.cs" />
     <Compile Include="Models\Booking.cs" />
+    <Compile Include="Implementations\BookingService.cs" />
+    <Compile Include="Implementations\DbConnections.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
