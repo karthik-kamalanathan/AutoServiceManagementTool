@@ -1,6 +1,7 @@
 ﻿using ASMT.Dataprovider.Implementations;
 using ASMT.Dataprovider.Models;
 using System;
+using System.Collections.Generic;
 using System.Web.UI;
 
 namespace ASMT.UI
@@ -16,7 +17,7 @@ namespace ASMT.UI
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Response.Redirect("ErrorPage.aspx");
+                Response.Redirect("Pages/ErrorPage.aspx");
             }
         }
 
@@ -24,33 +25,43 @@ namespace ASMT.UI
         {
             try
             {
-                //BookingService bookingService = new BookingService();
+                BookingService bookingService = new BookingService();
 
-                //Booking booking = new Booking();
-                //booking.Name = firstName.Text + " " + lastName.Text;
-                //booking.VehicleNumber = vehicleNum.Text;
-                //booking.VehicleModel = vehicleModel.Text;
-                //booking.Location = location.Text;
-                //booking.CreatedDate = DateTime.Now;
-                //booking.PhNo = phonenum.Text;
-                //booking.ServiceType = serviceType.Text;
-                //booking.ServiceIntructions = serviceIns.Text;
+                Booking booking = new Booking()
+                {
+                    CreatedDate = DateTime.Now,
+                    Name = firstName.Text.Trim() + " " + lastName.Text.Trim(),
+                    Phone = phonenum.Text,
+                    Location = location.Text,
+                    VehicleNumber = vehicleNum.Text,
+                    VehicleModel = vehicleModel.Text,
+                    RequestedDate = Convert.ToDateTime(serviceDate.Text)   
+                };
 
-                //string bookingId = bookingService.BookAService(booking);
+                AutoService service = new AutoService()
+                {
+                    RequestedDate = Convert.ToDateTime(serviceDate.Text),
+                    VehicleNumber = vehicleNum.Text,
+                    VehicleModel = vehicleModel.Text,
+                    ServiceType = serviceType.Text,
+                    ServiceTasks = ReadServiceTasks(serviceItems.Text),
+                    ServiceInstructions = serviceIns.Text
+                };
 
-                //if (bookingId == string.Empty)
-                //{
-                //    throw new Exception();
-                //}
+                string bookingId = bookingService.BookAService(booking, service);
 
-                //txtBookingId.Text = "1234";
+                if (bookingId == string.Empty)
+                {
+                    throw new Exception();
+                }
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openSuccessModal();", true);
+                string script = "openSuccessModal(" + bookingId + ");";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", script, true);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Response.Redirect("ErrorPage.aspx");
+                Response.Redirect("Pages/ErrorPage.aspx");
             }
         }
 
@@ -58,13 +69,29 @@ namespace ASMT.UI
         {
             try
             {
-                Response.Redirect("IndexPage.aspx");
+                Response.Redirect("Pages/IndexPage.aspx");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Response.Redirect("ErrorPage.aspx");
+                Response.Redirect("Pages/ErrorPage.aspx");
             }
+        }
+
+        private Dictionary<string, string> ReadServiceTasks(string serviceItems)
+        {
+            try
+            {
+                var tasks = new Dictionary<string, string>();
+
+                //Operation to read Service Tasks
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Response.Redirect("Pages/ErrorPage.aspx");
+            }
+            return null;
         }
     }
 }

@@ -8,9 +8,11 @@
     <!--External Resources-->
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../Content/bootstrap-select.min.css" rel="stylesheet" />
-     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/jquery-3.6.0.slim.js"></script>
+    <script src="../Scripts/umd/popper.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
 
     <style>
         .bd-placeholder-img {
@@ -40,7 +42,8 @@
 
     <!-- Booking Success Show Modal -->
     <script type="text/javascript">
-        function openSuccessModal() {
+        function openSuccessModal(bookingId) {
+            document.getElementById("txtBookingId").value = bookingId;
             $('#bookingSuccess').modal('show');
         }
     </script>
@@ -50,7 +53,7 @@
     </script>
 
     <link href="../Content/form-validation.css" rel="stylesheet" />
-
+    <link href="../Content/modals.css" rel="stylesheet" />
 </head>
 <body class="bg-light">
     <div class="container">
@@ -64,7 +67,8 @@
 
             <!-- Booking Form -->
             <h4 class="mb-3">Basic Info</h4>
-            <form class="needs-validation" id="billingForm" runat="server" novalidate>
+            <form class="needs-validation" id="bookingForm" runat="server" novalidate>
+            <%--<form id="bookingForm" runat="server" novalidate>--%>
                 <div class="row g-3">
 
                     <!-- Customer First Name -->
@@ -189,7 +193,7 @@
                 </div>
                 <hr class="my-4" />
 
-                <asp:Button type="submit" class="w-100 btn btn-primary btn-lg" runat="server" Text="Book Service" OnClick="bookClick" />
+                <asp:Button type="submit" class="w-100 btn btn-primary btn-lg" runat="server" Text="Book Service" OnClick="bookClick" CausesValidation="False" />
                 <asp:Button class="w-100 btn btn-outline-secondary btn-lg my-4" runat="server" Text="Go Back" OnClick="goBackClick" />
 
             </form>
@@ -217,7 +221,7 @@
                     <div class="form-group">
                         <asp:Label class="form-check-label" runat="server">
                             <h5>Tracking Id</h5>
-                            <%--<asp:TextBox type="text" class="form-control" ID="txtBookingId" name="bookingId" runat="server" ReadOnly="true" />--%>
+                            <input id="txtBookingId" class="form-control" type="text" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly />
                             <br />
                             Please, Use this id to track serive status. thank you.
                         </asp:Label>

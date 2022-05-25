@@ -1,18 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ASMT.Dataprovider.Models
 {
-    public class Booking
+    public class AutoService
     {
         public long BookingId { get; set; }
-        public string Location{ get; set; }
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public DateTime CreatedDate { get; set; }
         public DateTime RequestedDate { get; set; }
         public DateTime CompletedDate { get; set; }
         public string VehicleNumber { get; set; }
         public string VehicleModel { get; set; }
+        public string ServiceType { get; set; }
+        public Dictionary<string, string> ServiceTasks { get; set; }
+        public string ServiceInstructions { get; set; }
     }
 }

@@ -45,9 +45,9 @@
     </script>
 
     <!-- Custom styles for this template -->
-    <link href="../Content/heroes.css" rel="stylesheet">
-    <link href="../Content/footers.css" rel="stylesheet">
-    <link href="../Content/modals.css" rel="stylesheet">
+    <link href="../Content/heroes.css" rel="stylesheet" />
+    <link href="../Content/footers.css" rel="stylesheet" />
+    <link href="../Content/modals.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -75,7 +75,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content shadow">
                 <div class="modal-header p-5 pb-4 border-bottom-0">
-                    <h2 class="fw-bold mb-0">Service Provider Sign In</h2>
+                    <h4>Administrator Sign-in</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-5 pt-0">
@@ -98,7 +98,6 @@
         </div>
     </div>
     <!-- Service Provider Sign In Modal -->
-
 
     <!-- Social Media Icons -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">

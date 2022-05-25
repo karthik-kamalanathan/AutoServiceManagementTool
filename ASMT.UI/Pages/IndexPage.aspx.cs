@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Web.UI;
+using ASMT.Dataprovider.Models;
+using ASMT.Dataprovider.Implementations;
 
 namespace ASMT.UI
 {
@@ -21,9 +24,17 @@ namespace ASMT.UI
         {
             try
             {
-                bool isAuthorized = true;
+                bool isAuthorized = false;
+                DbConnections dbConnect = new DbConnections();
 
-                //Code to Validate Credentials
+                Credential credential = new Credential()
+                {
+                    Location = "Kumbakonam",
+                    UserName = txtUsername.Text,
+                    Password = txtPswd.Text
+                };
+
+                isAuthorized = dbConnect.Login(credential);
 
                 if (isAuthorized)
                 {
@@ -32,7 +43,7 @@ namespace ASMT.UI
                 }
                 else
                 {
-                    //Display Invalid Credentials Error
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Wrong Credentials')", true);
                 }
             }
             catch (Exception ex)

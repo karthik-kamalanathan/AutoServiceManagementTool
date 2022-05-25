@@ -62,16 +62,16 @@
     <Folder Include="DeleteQueries" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="CreateQueries\Bookings.sql" />
+    <Build Include="CreateQueries\BookingTable.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ASMT.Database.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="CreateQueries\ServiceProviders.sql" />
+    <Build Include="CreateQueries\CredentialsTable.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="CreateQueries\ServiceRequests.sql" />
-    <Build Include="CreateQueries\ServiceStatus.sql" />
+    <Build Include="CreateQueries\ServicesTable.sql" />
+    <Build Include="CreateQueries\TrackStatusTable.sql" />
   </ItemGroup>
 </Project>
