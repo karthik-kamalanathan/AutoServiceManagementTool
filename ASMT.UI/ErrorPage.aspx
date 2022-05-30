@@ -1,12 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ErrorPage.aspx.cs" Inherits="ASMT.UI.ErrorPage" %>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<html lang="en">
+<head>
+
     <!-- Meta Data -->
+    <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="">
+    <meta name="author" content="Aishvarya">
     <!-- Meta Data -->
 
     <title>Error</title>
@@ -68,7 +72,7 @@
     <!-- JavaScript Code to Show Error -->
 
     <!-- JavaScript Code to Disable Back Button -->
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         function DisableBackButton() {
             window.history.forward()
         }
@@ -76,7 +80,7 @@
         window.onload = DisableBackButton;
         window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
         window.onunload = function () { void (0) }
-    </script>
+    </script>--%>
     <!-- JavaScript Code to Disable Back Button -->
 
     <!-- CSS Styles For Texts in Error Page -->
@@ -114,6 +118,7 @@
 </head>
 <body>
 
+    <!-- Error Display -->
     <div id="notfound">
         <div class="notfound">
             <div class="notfound-404">
@@ -123,6 +128,7 @@
             <h2>we are sorry, we couldn't load the page you requested</h2>
         </div>
     </div>
+    <!-- Error Display -->
 
     <script async="" src="./404 HTML Template by Colorlib_files/js"></script>
 
@@ -149,10 +155,4 @@
     <!-- Internal Resources -->
 
 </body>
-<loom-container id="lo-engage-ext-container">
-    <loom-shadow classname="resolved"></loom-shadow>
-</loom-container>
-<loom-container id="lo-companion-container">
-    <loom-shadow classname="resolved"></loom-shadow>
-</loom-container>
 </html>

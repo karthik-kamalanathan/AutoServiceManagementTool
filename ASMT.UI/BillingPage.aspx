@@ -1,14 +1,15 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BillingPage.aspx.cs" Inherits="ASMT.UI.BillingPage" %>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<html lang="en">
+<head>
 
+    <!-- Meta Data -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
     <meta name="author" content="Aishvarya" />
-    <meta name="generator" content="Hugo 0.88.1" />
+    <!-- Meta Data -->
 
     <title>ASMT - Auto Service & Management Tool</title>
 

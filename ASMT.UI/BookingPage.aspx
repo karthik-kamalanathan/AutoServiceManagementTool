@@ -1,18 +1,26 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookingPage.aspx.cs" Inherits="ASMT.UI.BookingPage" %>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<html lang="en">
+<head>
+
+    <!-- Meta Data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Aishvarya">
+    <!-- Meta Data -->
+
     <title>ASMT - Auto Service & Management Tool</title>
 
     <!--External Resources-->
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../Content/bootstrap-select.min.css" rel="stylesheet" />
-    
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
     <script src="../Scripts/jquery-3.6.0.slim.js"></script>
     <script src="../Scripts/umd/popper.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
+    <!--External Resources-->
 
     <style>
         .bd-placeholder-img {
@@ -68,7 +76,7 @@
             <!-- Booking Form -->
             <h4 class="mb-3">Basic Info</h4>
             <form class="needs-validation" id="bookingForm" runat="server" novalidate>
-            <%--<form id="bookingForm" runat="server" novalidate>--%>
+                <%--<form id="bookingForm" runat="server" novalidate>--%>
                 <div class="row g-3">
 
                     <!-- Customer First Name -->

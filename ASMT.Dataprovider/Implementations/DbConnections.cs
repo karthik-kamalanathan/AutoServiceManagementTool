@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using ASMT.Dataprovider.Models;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Collections.Generic;
 
 namespace ASMT.Dataprovider.Implementations
 {
@@ -66,6 +67,22 @@ namespace ASMT.Dataprovider.Implementations
             }
 
             return booking;
+        }
+
+        public List<Booking> GetBookings(string location)
+        {
+            var bookings = new List<Booking>();
+
+            try
+            {
+                //Get Bookings
+
+                return bookings;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool CreateBooking(Booking booking)

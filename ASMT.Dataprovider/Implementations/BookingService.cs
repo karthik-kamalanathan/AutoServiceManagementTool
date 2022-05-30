@@ -44,6 +44,5 @@ namespace ASMT.Dataprovider.Implementations
             }
             return string.Empty;
         }
-
     }
 }

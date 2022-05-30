@@ -16,7 +16,7 @@ namespace ASMT.UI
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Response.Redirect("Pages/ErrorPage.aspx");
+                Response.Redirect("ErrorPage.aspx");
             }
         }
 
@@ -38,7 +38,7 @@ namespace ASMT.UI
 
                 if (isAuthorized)
                 {
-                    Response.Redirect("Pages/DealerPage.aspx", false);
+                    Response.Redirect("DealerPage.aspx?Location=" + credential.Location, false);
                     Context.ApplicationInstance.CompleteRequest();
                 }
                 else
@@ -49,7 +49,7 @@ namespace ASMT.UI
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Response.Redirect("Pages/ErrorPage.aspx");
+                Response.Redirect("ErrorPage.aspx");
             }
         }
     }

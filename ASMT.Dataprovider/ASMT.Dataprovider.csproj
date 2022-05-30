@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementations\DealerService.cs" />
+    <Compile Include="Implementations\TrackService.cs" />
+    <Compile Include="Implementations\UpdateService.cs" />
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Implementations\BookingService.cs" />
     <Compile Include="Implementations\DbConnections.cs" />

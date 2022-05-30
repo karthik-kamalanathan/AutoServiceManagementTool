@@ -9,18 +9,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Aishvarya">
-    <meta name="generator" content="Hugo 0.88.1">
     <!-- Meta Data -->
 
     <title>ASMT - Auto Service & Management Tool</title>
 
-    <!-- Bootstrap Reference -->
+    <!--External Resources-->
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <script src="../Scripts/umd/popper.min.js"></script>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
-    <script src="../Scripts/jquery-3.6.0.slim.js"></script>    
+    <script src="../Scripts/jquery-3.6.0.slim.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
-    <!-- Bootstrap Reference -->
+    <!--External Resources-->
 
     <style>
         .bd-placeholder-img {
@@ -50,7 +49,7 @@
     <link href="../Content/modals.css" rel="stylesheet" />
 </head>
 <body>
-
+    <!-- Page Title & Description -->
     <div class="px-4 pt-5 my-5 text-center border-bottom">
         <br />
         <h1 class="display-4 fw-bold">Auto Service & Management Tool</h1>
@@ -58,8 +57,8 @@
             <p class="lead mb-4">Book Vehicle Service in Simple & Easy Steps, Best Service in Low Cost From Well Trained Mechanics with Certified Quality Spare Parts & No Delays, All in One Tool to Book Service or Maintenance for Your Vehicle with Features to Pay & Track Online.</p>
             <br />
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" onclick="location.href = 'Pages/BookingPage.aspx'">Book Service</button>
-                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" onclick="location.href = 'Pages/TrackingPage.aspx'">Track Service</button>
+                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" onclick="location.href = 'BookingPage.aspx'">Book Service</button>
+                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" onclick="location.href = 'TrackingPage.aspx'">Track Service</button>
                 <button type="button" class="btn btn-outline-secondary btn-lg px-4" data-bs-toggle="modal" data-bs-target="#modalSignin">Not a Customer?</button>
             </div>
         </div>
@@ -69,6 +68,7 @@
             </div>
         </div>
     </div>
+    <!-- Page Title & Description -->
 
     <!-- Service Provider Sign In Modal -->
     <div class="modal fade" tabindex="-1" role="dialog" id="modalSignin" aria-hidden="true">

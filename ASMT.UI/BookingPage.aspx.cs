@@ -17,7 +17,7 @@ namespace ASMT.UI
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Response.Redirect("Pages/ErrorPage.aspx");
+                Response.Redirect("ErrorPage.aspx");
             }
         }
 
@@ -61,7 +61,7 @@ namespace ASMT.UI
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Response.Redirect("Pages/ErrorPage.aspx");
+                Response.Redirect("ErrorPage.aspx");
             }
         }
 
@@ -69,12 +69,12 @@ namespace ASMT.UI
         {
             try
             {
-                Response.Redirect("Pages/IndexPage.aspx");
+                Response.Redirect("IndexPage.aspx");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Response.Redirect("Pages/ErrorPage.aspx");
+                Response.Redirect("ErrorPage.aspx");
             }
         }
 
@@ -89,7 +89,7 @@ namespace ASMT.UI
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                Response.Redirect("Pages/ErrorPage.aspx");
+                Response.Redirect("ErrorPage.aspx");
             }
             return null;
         }
