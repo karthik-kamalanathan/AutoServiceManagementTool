@@ -29,5 +29,34 @@ namespace ASMT.Dataprovider.Implementations
                 throw ex;
             }
         }
+
+        public AutoService GetServiceData(long bookingId)
+        {
+            AutoService service;
+            try
+            {
+                service = db.GetServiceData(bookingId.ToString());        
+
+                return service;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public bool DealerLogin(Credential creds)
+        {
+            bool isAuthorized = false;
+
+            if (creds != null)
+            {
+                if (creds.Location != null && creds.Location != "" && creds.UserName != null && creds.UserName != "" && creds.Password != null && creds.Password != "")
+                    isAuthorized = db.Login(creds);
+            }
+
+            return isAuthorized;
+        }
     }
 }

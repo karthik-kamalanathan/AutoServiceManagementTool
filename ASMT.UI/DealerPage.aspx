@@ -18,27 +18,21 @@
     <link href="../Content/sidebars.css" rel="stylesheet" />
     <link href="../Content/modals.css" rel="stylesheet" />
 
-    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <%--<script src="../Scripts/umd/popper.min.js"></script>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>--%>
     <script src="../Scripts/jquery-3.6.0.slim.js"></script>
-    <script src="../Scripts/umd/popper.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
 
-    <!-- Css Style For Sidebar -->
-    <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
+    <script type="text/javascript">
+        function openSuccessModal() {
+            $('#bookingSuccess').modal('show');
         }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>
+    </script>
+    <script>
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+    </script>
 
     <script type="text/javascript">
         function DisableBackButton() {
@@ -84,7 +78,7 @@
         <!-- Side Bar -->
         <main class="d-flex flex-nowrap">
 
-            <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+            <div class="d-flex flex-column flex-shrink-0 p-3 bg-light min-vh-100" style="width: 280px;">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <svg class="bi me-2" width="40" height="32">
                         <use xlink:href="#bootstrap" />
@@ -181,25 +175,69 @@
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Service Details</h5>
+                        <h2 class="modal-title mx-3" id="exampleModalLabel">Service Details</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
                     <div class="modal-body">
+                        <div class="container">
+
+                            <h1 runat="server" id="modalHeader"></h1>
+                            <p runat="server" class="lead" id="modalDescription">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
+                            <br />
+
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <%--<h3>Name: 
+                                    <small class="text-muted">Karthik Kamalanathan</small>
+                                    </h3>--%>
+                                    <h4>Tasks</h4>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <h4>Status</h4>
+                                </div>
+                                <asp:Panel runat="server" ID="modalTasks">
+                                </asp:Panel>
+                                <div class="col-sm-6">
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-check form-switch form-control-lg">
+                                        <input class="form-check-input" type="checkbox">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-check form-switch form-control-lg">
+                                        <input class="form-check-input" type="checkbox">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="form-check form-switch form-control-lg">
+                                        <input class="form-check-input" type="checkbox">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-lg btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <asp:Button type="submit" class="mb-2 btn btn-lg btn-primary" runat="server" Text="Save Changes" OnClick="saveChanges" />
                     </div>
 
                 </div>
             </div>
         </div>
         <!-- FullScreen Service Details Modal -->
-
-        <script src="../Scripts/bootstrap.bundle.min.js"></script>
-        <script src="../Scripts/sidebars.js"></script>
-
     </form>
 </body>
 </html>

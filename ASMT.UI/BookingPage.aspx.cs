@@ -32,10 +32,11 @@ namespace ASMT.UI
                     CreatedDate = DateTime.Now,
                     Name = firstName.Text.Trim() + " " + lastName.Text.Trim(),
                     Phone = phonenum.Text,
+                    Email = email.Text,
                     Location = location.Text,
                     VehicleNumber = vehicleNum.Text,
                     VehicleModel = vehicleModel.Text,
-                    RequestedDate = Convert.ToDateTime(serviceDate.Text)   
+                    RequestedDate = Convert.ToDateTime(serviceDate.Text)
                 };
 
                 AutoService service = new AutoService()
@@ -44,7 +45,7 @@ namespace ASMT.UI
                     VehicleNumber = vehicleNum.Text,
                     VehicleModel = vehicleModel.Text,
                     ServiceType = serviceType.Text,
-                    ServiceTasks = ReadServiceTasks(serviceItems.Text),
+                    ServiceTasks = ReadServiceTasks(),
                     ServiceInstructions = serviceIns.Text
                 };
 
@@ -55,8 +56,10 @@ namespace ASMT.UI
                     throw new Exception();
                 }
 
+                //Below Code Has Issues
                 string script = "openSuccessModal(" + bookingId + ");";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", script, true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openSuccessModal();", true);
+
             }
             catch (Exception ex)
             {
@@ -78,15 +81,34 @@ namespace ASMT.UI
             }
         }
 
-        private Dictionary<string, string> ReadServiceTasks(string serviceItems)
+        private Dictionary<string, bool> ReadServiceTasks()
         {
             try
             {
-                var tasks = new Dictionary<string, string>();
+                var tasks = new Dictionary<string, bool>();
 
-                //Operation to read Service Tasks
+                if (engineOil.Checked)
+                    tasks.Add("EngineOilChange", false);
+
+                if (breakOil.Checked)
+                    tasks.Add("BreakOilChange", false);
+
+                if (suspension.Checked)
+                    tasks.Add("AdjustSuspension", false);
+
+                if (tyreChange.Checked)
+                    tasks.Add("ChangeTyre", false);
+
+                if (chainTight.Checked)
+                    tasks.Add("ChainTightening", false);
+
+                tasks.Add("WheelAlignment", false);
+                tasks.Add("WaterWash", false);
+                tasks.Add("AirCheck", false);
+
+                return tasks;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 Response.Redirect("ErrorPage.aspx");

@@ -50,7 +50,8 @@ namespace ASMT.Dataprovider.Implementations
                         booking.VehicleNumber = reader["VehicleNumber"].ToString();
                         booking.VehicleModel = reader["VehicleModel"].ToString();
                         booking.CreatedDate = Convert.ToDateTime(reader["CreatedDate"].ToString());
-                        //booking.CompletedDate = Convert.ToDateTime(reader["CompletedDate"].ToString()); --> Handle Null Values
+                        if (reader["CompletedDate"] != DBNull.Value)
+                            booking.CompletedDate = Convert.ToDateTime(reader["CompletedDate"].ToString());
                     }
                 }
             }
@@ -75,7 +76,35 @@ namespace ASMT.Dataprovider.Implementations
 
             try
             {
-                //Get Bookings
+                string sqlCommand = "SELECT [BookingId], [Location], [Name], [Phone], [Email], [VehicleNumber], [VehicleModel], [CreatedDate], [RequestedDate], [CompletedDate] " +
+                                    "FROM[dbo].[Bookings] " +
+                                    "WHERE[Location] = @location";
+
+                var cmd = new SqlCommand(sqlCommand, sqlCon);
+                cmd.Parameters.AddWithValue("@location", location);
+
+                sqlCon.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var booking = new Booking();
+                        booking.BookingId = Convert.ToInt64(reader["BookingId"].ToString());
+                        booking.Name = reader["Name"].ToString();
+                        booking.Email = reader["Email"].ToString();
+                        booking.Phone = reader["Phone"].ToString();
+                        booking.Location = reader["Location"].ToString();
+                        booking.VehicleModel = reader["VehicleModel"].ToString();
+                        booking.VehicleNumber = reader["VehicleNumber"].ToString();
+                        booking.CreatedDate = Convert.ToDateTime(reader["CreatedDate"].ToString());
+                        booking.RequestedDate = Convert.ToDateTime(reader["RequestedDate"].ToString());
+                        if (reader["CompletedDate"] != DBNull.Value)
+                            booking.CompletedDate = Convert.ToDateTime(reader["CompletedDate"].ToString());
+
+                        bookings.Add(booking);
+                    }
+                }
 
                 return bookings;
             }
@@ -146,7 +175,10 @@ namespace ASMT.Dataprovider.Implementations
                 var cmd = new SqlCommand(sqlCommand, sqlCon);
                 cmd.Parameters.AddWithValue("@BookingId", bookingId);
 
-                sqlCon.Open();
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -157,9 +189,13 @@ namespace ASMT.Dataprovider.Implementations
                         service.VehicleModel = reader["VehicleModel"].ToString();
                         service.ServiceType = reader["ServiceType"].ToString();
                         service.ServiceInstructions = reader["ServiceInstructions"].ToString();
-                        //service.ServiceTasks = reader["ServiceTasks"]; --> Map to Dictionaries
+                        byte[] byteArr = (byte[])reader["ServiceTasks"];
+                        Stream s = new MemoryStream(byteArr);
+                        var binFormatter = new BinaryFormatter();
+                        service.ServiceTasks = (Dictionary<string, bool>)binFormatter.Deserialize(s);
                         service.RequestedDate = Convert.ToDateTime(reader["RequestedDate"].ToString());
-                        //service.CompletedDate = Convert.ToDateTime(reader["CompletedDate"].ToString()); --> Handle Null Values
+                        if (reader["CompletedDate"] != DBNull.Value)
+                            service.CompletedDate = Convert.ToDateTime(reader["CompletedDate"].ToString());
                     }
                 }
             }

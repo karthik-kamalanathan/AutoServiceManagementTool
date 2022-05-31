@@ -25,7 +25,7 @@ namespace ASMT.UI
             try
             {
                 bool isAuthorized = false;
-                DbConnections dbConnect = new DbConnections();
+                DealerService dealerService = new DealerService();
 
                 Credential credential = new Credential()
                 {
@@ -34,7 +34,7 @@ namespace ASMT.UI
                     Password = txtPswd.Text
                 };
 
-                isAuthorized = dbConnect.Login(credential);
+                isAuthorized = dealerService.DealerLogin(credential);
 
                 if (isAuthorized)
                 {

@@ -105,13 +105,49 @@ namespace ASMT.UI
         protected global::System.Web.UI.WebControls.DropDownList serviceType;
 
         /// <summary>
-        /// serviceItems control.
+        /// engineOil control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList serviceItems;
+        protected global::System.Web.UI.WebControls.CheckBox engineOil;
+
+        /// <summary>
+        /// breakOil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox breakOil;
+
+        /// <summary>
+        /// suspension control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox suspension;
+
+        /// <summary>
+        /// tyreChange control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox tyreChange;
+
+        /// <summary>
+        /// chainTight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chainTight;
 
         /// <summary>
         /// serviceIns control.

@@ -11,7 +11,7 @@ namespace ASMT.Dataprovider.Models
         public string VehicleNumber { get; set; }
         public string VehicleModel { get; set; }
         public string ServiceType { get; set; }
-        public Dictionary<string, string> ServiceTasks { get; set; }
+        public Dictionary<string, bool> ServiceTasks { get; set; }
         public string ServiceInstructions { get; set; }
     }
 }

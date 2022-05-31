@@ -103,6 +103,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="packages.config" />
+    <Content Include="Content\grid.css" />
     <Content Include="DealerPage.aspx" />
     <Content Include="ErrorPage.aspx" />
     <Content Include="Images\bike-img.jpg" />
