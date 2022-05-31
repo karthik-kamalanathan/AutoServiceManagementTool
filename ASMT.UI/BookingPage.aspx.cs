@@ -57,8 +57,9 @@ namespace ASMT.UI
                 }
 
                 //Below Code Has Issues
-                string script = "openSuccessModal(" + bookingId + ");";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openSuccessModal();", true);
+                string script = "$('#txtBookingId').val(" + bookingId + ");";            
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "none", script, true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "$('#bookingSuccess').modal('show');", true);
 
             }
             catch (Exception ex)

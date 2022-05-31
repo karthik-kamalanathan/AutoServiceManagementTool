@@ -31,5 +31,32 @@ namespace ASMT.Dataprovider.Implementations
                 throw ex;
             }
         }
+
+        public Booking GetBookingData(string bookingId)
+        {
+            Booking booking = new Booking();
+            try
+            {
+                booking = db.GetBookingData(Convert.ToInt64(bookingId));
+
+                return booking;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool UpdateTrackingData(TrackStatus trackStatus)
+        {
+            try
+            {
+                return db.UpdateTrackingData(trackStatus);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

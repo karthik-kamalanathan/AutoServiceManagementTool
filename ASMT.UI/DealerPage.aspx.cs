@@ -22,6 +22,65 @@ namespace ASMT.UI
         {
             try
             {
+                PopulateBookingList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Response.Redirect("ErrorPage.aspx");
+            }
+        }
+
+        protected void OnClickListItem(object sender, EventArgs e)
+        {
+            try
+            {
+                string bookingId = ((LinkButton)sender).ID.Replace("B", "");
+                Response.Redirect("ServicePage.aspx?BookingId=" + bookingId, false);
+                Context.ApplicationInstance.CompleteRequest();
+
+                PopulateServiceDataInModal();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Response.Redirect("ErrorPage.aspx");
+            }
+        }
+
+        protected void saveChanges(object sender, EventArgs e)
+        {
+            try
+            {
+                TrackService track = new TrackService();
+
+                var dataFromModal = new Dictionary<string, bool>();
+
+                var checkBoxes = GetAllControls(modalContentArea).OfType<HtmlInputCheckBox>().ToList();
+                foreach (var task in autoService.ServiceTasks)
+                {
+                    var checkBox = checkBoxes.Where(x => x.ID == task.Key.Replace(" ", String.Empty)).FirstOrDefault();
+                    dataFromModal.Add(task.Key, checkBox.Checked);
+                }
+
+                if (autoService.ServiceTasks != dataFromModal)
+                {
+                    //Modify Service Data
+
+                    //Modify Tracking Data
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Response.Redirect("ErrorPage.aspx");
+            }
+        }
+
+        private void PopulateBookingList()
+        {
+            try
+            {
                 location = Request.QueryString["Location"];
                 if (location == null)
                     location = "Kumbakonam";
@@ -36,7 +95,7 @@ namespace ASMT.UI
                 if (bookings == null || bookings.Count == 0)
                 {
                     var serviceElement = new LinkButton();
-                    serviceElement.Click += new EventHandler(OnClickListItem);
+                    //serviceElement.Click += new EventHandler(OnClickListItem);
                     serviceElement.ID = "noservice";
                     serviceElement.Attributes.Add("class", "list-group-item list-group-item-action py-3 lh-tight");
                     serviceElement.Attributes.Add("aria-current", "true");
@@ -47,7 +106,7 @@ namespace ASMT.UI
 
                     var heading = new HtmlGenericControl("strong")
                     {
-                        InnerText = "No Services Pending Completion" 
+                        InnerText = "No Services Pending Completion"
                     };
                     heading.Attributes.Add("class", "mb-1");
                     divContent.Controls.Add(heading);
@@ -60,7 +119,7 @@ namespace ASMT.UI
                     {
                         var serviceElement = new LinkButton();
                         serviceElement.Click += new EventHandler(OnClickListItem);
-                        serviceElement.ID = booking.BookingId.ToString();
+                        serviceElement.ID = "B" + booking.BookingId.ToString();
                         serviceElement.Attributes.Add("class", "list-group-item list-group-item-action py-3 lh-tight");
                         serviceElement.Attributes.Add("aria-current", "true");
                         serviceElement.Attributes.Add("runat", "server");
@@ -97,52 +156,70 @@ namespace ASMT.UI
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                Response.Redirect("ErrorPage.aspx");
+                throw ex;
             }
         }
 
-        protected void OnClickListItem(object sender, EventArgs e)
+        private void PopulateServiceDataInModal()
         {
             try
             {
-                long bookId = Convert.ToInt64(((LinkButton)sender).ID);
-
-                if (bookings != null)
+                foreach (var task in autoService.ServiceTasks)
                 {
-                    var booking = bookings.Where(x => x.BookingId == bookId).FirstOrDefault();
+                    var firstColumn = new HtmlGenericControl("div");
+                    firstColumn.Attributes.Add("class", "col-sm-6");
+
+                    var taskPara = new HtmlGenericControl("p")
+                    {
+                        InnerText = task.Key
+                    };
+                    taskPara.Attributes.Add("class", "lead");
+
+                    firstColumn.Controls.Add(taskPara);
+                    modalContentArea.Controls.Add(firstColumn);
+
+                    var secondColumn = new HtmlGenericControl("div");
+                    secondColumn.Attributes.Add("class", "col-sm-6");
+
+                    var checkDiv = new HtmlGenericControl("div");
+                    checkDiv.Attributes.Add("class", "form-check form-switch form-control-lg");
+
+                    var checkBox = new HtmlGenericControl("input")
+                    {
+                        ID = "chck" + task.Key.Replace(" ", String.Empty),
+                    };
+                    checkBox.Attributes.Add("class", "form-check-input");
+                    checkBox.Attributes.Add("type", "checkbox");
+                    checkBox.Attributes.Add("runat", "server");
+                    if (task.Value)
+                    {
+                        checkBox.Attributes.Add("checked", "true");
+                    }
+                    else
+                    {
+                        checkBox.Attributes.Add("checked", "false");
+                    }
+                    checkDiv.Controls.Add(checkBox);
+
+                    secondColumn.Controls.Add(checkDiv);
+                    modalContentArea.Controls.Add(secondColumn);
                 }
-
-                autoService = dealerService.GetServiceData(bookId);
-
-                //Populate Modal Data
-
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openSuccessModal();", true);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                Response.Redirect("ErrorPage.aspx");
+                throw ex;
             }
         }
 
-        protected void saveChanges(object sender, EventArgs e)
+        private IEnumerable<Control> GetAllControls(Control parent)
         {
-            try
+            foreach (Control control in parent.Controls)
             {
-                TrackService track = new TrackService();
-                
-                //Get Changes From Web Page
-
-                //Modify Service Data
-
-                //Modify Tracking Data
-
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Response.Redirect("ErrorPage.aspx");
+                yield return control;
+                foreach (Control descendant in GetAllControls(control))
+                {
+                    yield return descendant;
+                }
             }
         }
     }

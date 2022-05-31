@@ -40,7 +40,7 @@
                                 <asp:TextBox type="text" class="form-control form-control-lg w-25" ID="trackingId" placeholder="Tracking Id" runat="server"></asp:TextBox>
                             </div>
                             <div class="d-md-flex justify-content-sm-center mb-2">
-                                <asp:Button class="btn btn-primary btn-lg" type="submit" Text="Track Service" runat="server"  OnClick="trackStatus" />
+                                <asp:Button class="btn btn-primary btn-lg" type="submit" Text="Track Service" runat="server" OnClick="trackStatus" />
                             </div>
                         </div>
                     </div>
@@ -56,14 +56,30 @@
                         <p class="lead">Please find your service status details below.</p>
                         <br />
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                            <div class="progress-bar" id="progressbar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" runat="server"></div>
                         </div>
                         <div class="d-flex">
                             <div class="flex-column flex-fill p-5 m-3">
-                                <p class="lead">Left</p>
+                                <p class="lead" runat="server" id="name"></p>
+                                <p class="lead" runat="server" id="vehicleModel"></p>
+                                <p class="lead" runat="server" id="vehicleNum"></p>
                             </div>
                             <div class="flex-column flex-fill p-5 m-3">
-                                <p class="lead">Right</p>
+                                <p class="lead" runat="server" id="bookedDate"></p>
+                                <p class="lead" runat="server" id="expectedDate"></p>
+                                <p class="lead" runat="server" id="status"></p>
+                            </div>
+                        </div>
+                        <div class="justify-content-sm-center row g-3" id="billDetails" runat="server">
+                            <div class="col-auto mx-5">
+                                <p class="display-6" id="paymentText" runat="server">Your Bill is Ready</p>
+                            </div>
+                            <div class="col-auto mx-5">
+                                <label for="amount" class="visually-hidden">Amount to be Paid</label>
+                                <input type="text" class="form-control form-control-lg" id="amount" placeholder="" runat="server" disabled readonly>
+                            </div>
+                            <div class="col-auto mx-5">
+                                <button type="submit" class="btn btn-primary btn-lg" runat="server" id="payBtn" onclick="BillingPage.aspx">Pay & Chcekout</button>
                             </div>
                         </div>
                     </div>

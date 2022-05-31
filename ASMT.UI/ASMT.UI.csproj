@@ -227,6 +227,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ServicePage.aspx" />
     <Content Include="TrackingPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -269,6 +270,13 @@
       <DependentUpon>IndexPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServicePage.aspx.cs">
+      <DependentUpon>ServicePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServicePage.aspx.designer.cs">
+      <DependentUpon>ServicePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TrackingPage.aspx.cs">
       <DependentUpon>TrackingPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

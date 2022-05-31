@@ -15,36 +15,32 @@
 
     <!--External Resources-->
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="../Content/modals.css" rel="stylesheet" />
-
-    <script src="../Scripts/bootstrap.bundle.min.js"></script>
-    <script src="../Scripts/jquery-3.6.0.slim.js"></script>
+    <link href="../Content/bootstrap-select.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="../Scripts/umd/popper.min.js"></script>
-    <script src="../Scripts/bootstrap.min.js"></script>
+    <%--<script src="../Scripts/bootstrap.min.js"></script>--%>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
     <!--External Resources-->
 
     <!-- Date Selector -->
-    <script type="text/javascript">
+<%--    <script type="text/javascript">
         let startDate = document.getElementById('startDate')
 
         startDate.addEventListener('change', (e) => {
             let startDateVal = e.target.value
             document.getElementById('startDateSelected').innerText = startDateVal
         })
-    </script>
+    </script>--%>
 
-    <!-- Booking Success Show Modal -->
+ <%--   <!-- Booking Success Show Modal -->
     <script type="text/javascript">
-        jQuery.noConflict();
-        function openSuccessModal() {
-            $('#bookingSuccess').modal('show');
+        function openSuccessModal(bookingId) {
+            
         }
-    </script>
-    <script>
-        $('#myModal').on('shown.bs.modal', function () {
-            $('#myInput').trigger('focus')
-        })
-    </script>
+    </script>--%>
+
+    <link href="../Content/modals.css" rel="stylesheet" />
 </head>
 <body class="bg-light">
     <div class="container">
@@ -135,10 +131,10 @@
 
                     <!-- Service Items Selector -->
                     <div class="col-sm-6">
-                        <%--<label for="serviceItems" class="form-label">Service Items</label>--%>
+                        <label for="serviceItems" class="form-label">Service Items</label>
                         <div class="dropdown">
-                            <a class="w-100 btn btn-light dropdown-toggle btn-outline-secondary" href="#" role="button" id="tasksMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Service Items</a>
-                            <ul class="dropdown-menu" aria-labelledby="tasksMenuLink">
+                            <a class="w-100 btn btn-light btn-outline-secondary dropdown-toggle" href="#" id="serviceItems" data-bs-toggle="dropdown" aria-expanded="false">Service Items</a>
+                            <ul class="dropdown-menu" aria-labelledby="serviceItems">
                                 <li class="dropdown-item">
                                     <asp:CheckBox ID="engineOil" class="form-check-input me-1" runat="server" value="" aria-label="..." />
                                     Engine Oil Change

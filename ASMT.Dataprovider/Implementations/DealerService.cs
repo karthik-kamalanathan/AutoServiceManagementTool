@@ -30,12 +30,12 @@ namespace ASMT.Dataprovider.Implementations
             }
         }
 
-        public AutoService GetServiceData(long bookingId)
+        public AutoService GetServiceData(string bookingId)
         {
             AutoService service;
             try
             {
-                service = db.GetServiceData(bookingId.ToString());        
+                service = db.GetServiceData(bookingId);
 
                 return service;
             }
@@ -45,6 +45,29 @@ namespace ASMT.Dataprovider.Implementations
             }
         }
 
+        public bool UpdateBooking(Booking booking)
+        {
+            try
+            {
+                return db.UpdateBookingData(booking);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool UpdateService(AutoService service)
+        {
+            try
+            {
+                return db.UpdateServiceData(service);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public bool DealerLogin(Credential creds)
         {

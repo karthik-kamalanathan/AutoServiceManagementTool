@@ -16,23 +16,11 @@
     <!--External Resources-->
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../Content/sidebars.css" rel="stylesheet" />
-    <link href="../Content/modals.css" rel="stylesheet" />
+    <%--<link href="../Content/modals.css" rel="stylesheet" />--%>
 
-    <%--<script src="../Scripts/umd/popper.min.js"></script>
-    <script src="../Scripts/bootstrap.bundle.min.js"></script>--%>
-    <script src="../Scripts/jquery-3.6.0.slim.js"></script>
+    <script src="../Scripts/jquery-3.6.0.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-        function openSuccessModal() {
-            $('#bookingSuccess').modal('show');
-        }
-    </script>
-    <script>
-        $('#myModal').on('shown.bs.modal', function () {
-            $('#myInput').trigger('focus')
-        })
-    </script>
+    <script src="../Scripts/umd/popper.min.js"></script>
 
     <script type="text/javascript">
         function DisableBackButton() {
@@ -75,9 +63,9 @@
         </svg>
         <!-- SVGs -->
 
-        <!-- Side Bar -->
         <main class="d-flex flex-nowrap">
 
+            <!-- Side Bar -->
             <div class="d-flex flex-column flex-shrink-0 p-3 bg-light min-vh-100" style="width: 280px;">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
                     <svg class="bi me-2" width="40" height="32">
@@ -158,7 +146,6 @@
 
             <!-- List Group -->
             <div class="d-flex flex-column flex-fill">
-
                 <div class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
                     <span class="fs-5 fw-semibold">Service Orders</span>
                 </div>
@@ -167,18 +154,18 @@
                     </asp:Panel>
                 </div>
             </div>
+            <!-- List Group -->
 
         </main>
 
         <!-- FullScreen Service Details Modal -->
-        <div class="modal fade" id="serviceDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="serviceDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" runat="server">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2 class="modal-title mx-3" id="exampleModalLabel">Service Details</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-
                     <div class="modal-body">
                         <div class="container">
 
@@ -197,20 +184,20 @@
                                 <div class="col-sm-6">
                                     <h4>Status</h4>
                                 </div>
-                                <asp:Panel runat="server" ID="modalTasks">
+                                <asp:Panel ID="modalContentArea" runat="server">
                                 </asp:Panel>
+
                                 <div class="col-sm-6">
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="form-check form-switch form-control-lg">
-                                        <input class="form-check-input" type="checkbox">
+                                        <input runat="server" class="form-check-input" type="checkbox" id="invalidid">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                 </div>
-
                                 <div class="col-sm-6">
                                     <div class="form-check form-switch form-control-lg">
                                         <input class="form-check-input" type="checkbox">
@@ -238,6 +225,7 @@
             </div>
         </div>
         <!-- FullScreen Service Details Modal -->
+
     </form>
 </body>
 </html>

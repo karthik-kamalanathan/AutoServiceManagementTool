@@ -11,17 +11,8 @@ namespace ASMT.UI
 {
 
 
-    public partial class TrackingPage
+    public partial class ServicePage
     {
-
-        /// <summary>
-        /// trackingId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox trackingId;
 
         /// <summary>
         /// trackdetails control.
@@ -51,6 +42,15 @@ namespace ASMT.UI
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl name;
 
         /// <summary>
+        /// phone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl phone;
+
+        /// <summary>
         /// vehicleModel control.
         /// </summary>
         /// <remarks>
@@ -67,6 +67,15 @@ namespace ASMT.UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl vehicleNum;
+
+        /// <summary>
+        /// createdDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl createdDate;
 
         /// <summary>
         /// bookedDate control.
@@ -96,39 +105,57 @@ namespace ASMT.UI
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl status;
 
         /// <summary>
-        /// billDetails control.
+        /// completedDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl billDetails;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl completedDate;
 
         /// <summary>
-        /// paymentText control.
+        /// taskListArea control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl paymentText;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl taskListArea;
 
         /// <summary>
-        /// amount control.
+        /// updateBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText amount;
+        protected global::System.Web.UI.WebControls.Button updateBtn;
 
         /// <summary>
-        /// payBtn control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton payBtn;
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// clearBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button clearBtn;
+
+        /// <summary>
+        /// backBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button backBtn;
     }
 }

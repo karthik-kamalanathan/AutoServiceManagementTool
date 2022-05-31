@@ -23,7 +23,7 @@ namespace ASMT.Dataprovider.Implementations
             sqlCon = new SqlConnection(conString);
         }
 
-        public Booking GetBookingData(int bookingId)
+        public Booking GetBookingData(long bookingId)
         {
             Booking booking = new Booking();
 
@@ -43,13 +43,14 @@ namespace ASMT.Dataprovider.Implementations
                     while (reader.Read())
                     {
                         booking.BookingId = Convert.ToInt64(reader["BookingId"]);
-                        booking.Location = reader["LocationId"].ToString();
+                        booking.Location = reader["Location"].ToString();
                         booking.Name = reader["Name"].ToString();
                         booking.Phone = reader["Phone"].ToString();
                         booking.Email = reader["Email"].ToString();
                         booking.VehicleNumber = reader["VehicleNumber"].ToString();
                         booking.VehicleModel = reader["VehicleModel"].ToString();
                         booking.CreatedDate = Convert.ToDateTime(reader["CreatedDate"].ToString());
+                        booking.RequestedDate = Convert.ToDateTime(reader["RequestedDate"].ToString());
                         if (reader["CompletedDate"] != DBNull.Value)
                             booking.CompletedDate = Convert.ToDateTime(reader["CompletedDate"].ToString());
                     }
@@ -68,6 +69,38 @@ namespace ASMT.Dataprovider.Implementations
             }
 
             return booking;
+        }
+
+        public bool UpdateBookingData(Booking booking)
+        {
+            bool isUpdated = false;
+
+            try
+            {
+                string sqlCommand = "UPDATE [dbo].[Bookings] SET CompletedDate = @CompletedDate Where BookingId = @BookingId";
+
+                var cmd = new SqlCommand(sqlCommand, sqlCon);
+                cmd.Parameters.AddWithValue("@BookingId", booking.BookingId.ToString());
+                cmd.Parameters.AddWithValue("@CompletedDate", booking.CompletedDate.ToString());
+
+                sqlCon.Open();
+
+                cmd.ExecuteNonQuery();
+                isUpdated = true;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                {
+                    sqlCon.Close();
+                }
+            }
+
+            return isUpdated;
         }
 
         public List<Booking> GetBookings(string location)
@@ -214,6 +247,62 @@ namespace ASMT.Dataprovider.Implementations
             return service;
         }
 
+        public bool UpdateServiceData(AutoService service)
+        {
+            bool isUpdated = false;
+
+            try
+            {
+                string sqlCommand = "UPDATE [dbo].[Services] SET ServiceInstructions = @ServiceInstructions, ServiceTasks = @ServiceTasks, CompletedDate = @CompletedDate  Where BookingId = @BookingId";
+
+                var cmd = new SqlCommand(sqlCommand, sqlCon);
+                cmd.Parameters.AddWithValue("@BookingId", service.BookingId.ToString());
+                if (service.ServiceInstructions != null)
+                {
+                    cmd.Parameters.AddWithValue("@ServiceInstructions", service.ServiceInstructions);
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@ServiceInstructions", DBNull.Value);
+                }
+
+                if (service.ServiceTasks != null)
+                {
+                    var binFormatter = new BinaryFormatter();
+                    var mStream = new MemoryStream();
+                    binFormatter.Serialize(mStream, service.ServiceTasks);
+                    var serviceTasks = mStream.ToArray();
+                    cmd.Parameters.AddWithValue("@ServiceTasks", serviceTasks);
+                }
+                else
+                {
+                    cmd.Parameters.Add("@ServiceTasks", SqlDbType.VarBinary, -1).Value = DBNull.Value;
+                }
+                if (service.CompletedDate != DateTime.MinValue)
+                    cmd.Parameters.AddWithValue("@CompletedDate", service.CompletedDate.ToString());
+                else
+                    cmd.Parameters.AddWithValue("@CompletedDate", DBNull.Value);
+
+                sqlCon.Open();
+
+                cmd.ExecuteNonQuery();
+                isUpdated = true;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                {
+                    sqlCon.Close();
+                }
+            }
+
+            return isUpdated;
+        }
+
         public bool CreateService(AutoService service)
         {
             bool isCreated = false;
@@ -313,6 +402,41 @@ namespace ASMT.Dataprovider.Implementations
             }
 
             return trackingData;
+        }
+
+        public bool UpdateTrackingData(TrackStatus trackService)
+        {
+            bool isUpdated = false;
+
+            try
+            {
+                string sqlCommand = "UPDATE [dbo].[TrackStatus] SET TasksDone = @TasksDone, IsPaymentDone = @IsPaymentDone, IsCompleted = @IsCompleted, ExpectedDate = @ExpectedDate Where BookingId = @BookingId";
+
+                var cmd = new SqlCommand(sqlCommand, sqlCon);
+                cmd.Parameters.AddWithValue("@BookingId", trackService.BookingId.ToString());
+                cmd.Parameters.AddWithValue("@TasksDone", trackService.TasksDone.ToString());
+                cmd.Parameters.AddWithValue("@IsPaymentDone", trackService.IsPaymentDone ? 1 : 0);
+                cmd.Parameters.AddWithValue("@IsCompleted", trackService.IsCompleted ? 1 : 0);
+                cmd.Parameters.AddWithValue("@ExpectedDate", trackService.ExpectedDate.ToString());
+
+                sqlCon.Open();
+
+                cmd.ExecuteNonQuery();
+                isUpdated = true;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                {
+                    sqlCon.Close();
+                }
+            }
+
+            return isUpdated;
         }
 
         public bool CreateTracking(TrackStatus trackService)
