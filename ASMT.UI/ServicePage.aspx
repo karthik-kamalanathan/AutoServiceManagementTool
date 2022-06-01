@@ -170,7 +170,7 @@
                                     <asp:Button type="submit" class="w-100 btn btn-primary btn-lg my-4" Text="Update Details" runat="server" ID="updateBtn" OnClick="UpdateService" />
                                 </div>
                                 <div class="col-sm-3">
-                                    <asp:Button type="submit" class="w-100 btn btn-primary btn-lg my-4" Text="Completed" runat="server" ID="Button1" OnClick="Completed" />
+                                    <asp:Button type="submit" class="w-100 btn btn-primary btn-lg my-4" Text="Completed" runat="server" ID="completeBtn" OnClick="Completed" />
                                 </div>
                                 <div class="col-sm-3">
                                     <asp:Button type="button" class="w-100 btn btn-light btn-lg my-4 border-primary" Text="Clear Changes" runat="server" ID="clearBtn" OnClick="ClearChanges" />

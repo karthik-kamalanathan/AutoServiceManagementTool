@@ -21,28 +21,6 @@
     <script src="../Scripts/bootstrap.min.js"></script>
     <!--External Resources-->
 
-    <%--<style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-    </style>--%>
-
-    <%--<script>
-        var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
-            trigger: 'focus'
-        })
-    </script>--%>
-
     <!-- Custom styles for this template -->
     <link href="../Content/heroes.css" rel="stylesheet" />
     <link href="../Content/footers.css" rel="stylesheet" />
@@ -102,7 +80,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <a role="button" data-bs-toggle="popover" data-bs-trigger="focus" title="Link is Disabled" data-bs-content="Requested link or page is underconstruction" class="text-primary">Forgot Password?</a>
+                    <a role="button" class="text-primary">Forgot Password?</a>
                 </div>
             </div>
         </div>

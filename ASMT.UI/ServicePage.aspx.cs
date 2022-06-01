@@ -48,7 +48,7 @@ namespace ASMT.UI
                 foreach (var task in serviceData.ServiceTasks)
                 {
                     var checkBox = (HtmlInputCheckBox)FindControl("chck" + task.Key.Replace(" ", String.Empty));
-                    if(checkBox != null)
+                    if (checkBox != null)
                     {
                         dataFromModal.Add(task.Key, checkBox.Checked);
                     }
@@ -61,8 +61,16 @@ namespace ASMT.UI
                     serviceData.ServiceTasks = dataFromModal;
                     dealerService.UpdateService(serviceData);
 
-                    statusData.TasksDone =  serviceData.ServiceTasks.Count(x => x.Value == true);
+                    statusData.TasksDone = serviceData.ServiceTasks.Count(x => x.Value == true);
                     trackService.UpdateTrackingData(statusData);
+
+                    var checkBoxes = GetAllControls(taskListArea).OfType<HtmlInputCheckBox>().ToList();
+
+                    foreach (var check in checkBoxes)
+                    {
+                        if (check.Checked)
+                            check.Disabled = true;
+                    }
                 }
             }
             catch (Exception ex)
@@ -123,7 +131,15 @@ namespace ASMT.UI
                 foreach (var check in checkBoxes)
                 {
                     check.Checked = true;
+                    check.Disabled = true;
                 }
+
+                updateBtn.Attributes["class"] += " disabled";                
+                completeBtn.Attributes["class"] += " disabled";
+                clearBtn.Attributes["class"] += " disabled";
+
+                status.InnerHtml = "<strong>Staus : </strong> Service Completed";
+                completedDate.InnerHtml = "<strong>Completed Date: </strong>" + bookingData.CompletedDate.ToString("MM/dd/yyyy");
             }
             catch (Exception ex)
             {
@@ -134,6 +150,11 @@ namespace ASMT.UI
 
         private void PopulateData()
         {
+            int percentComplete = (int)Math.Round((double)(100 * statusData.TasksDone) / statusData.TasksTotal);
+            progressbar.Style.Add(HtmlTextWriterStyle.Width, percentComplete + "%");
+            progressbar.Attributes.Add("aria-valuenow", percentComplete.ToString());
+            progressbar.InnerText = percentComplete + "%";
+
             name.InnerHtml = "<strong>Name : </strong>" + bookingData.Name;
             phone.InnerHtml = "<strong>Phone : </strong>" + bookingData.Phone;
             vehicleModel.InnerHtml = "<strong>Model : </strong>" + bookingData.VehicleModel;
@@ -144,6 +165,9 @@ namespace ASMT.UI
             {
                 status.InnerHtml = "<strong>Staus : </strong> Service Completed";
                 completedDate.InnerHtml = "<strong>Completed Date: </strong>" + bookingData.CompletedDate.ToString("MM/dd/yyyy");
+                updateBtn.Attributes["class"] += " disabled";
+                completeBtn.Attributes["class"] += " disabled";
+                clearBtn.Attributes["class"] += " disabled";
             }
             else
             {
@@ -167,6 +191,7 @@ namespace ASMT.UI
                 if (task.Value)
                 {
                     checkBox.Checked = true;
+                    checkBox.Disabled = true;
                 }
                 else
                 {

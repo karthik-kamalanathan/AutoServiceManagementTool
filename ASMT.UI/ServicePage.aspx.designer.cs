@@ -132,13 +132,13 @@ namespace ASMT.UI
         protected global::System.Web.UI.WebControls.Button updateBtn;
 
         /// <summary>
-        /// Button1 control.
+        /// completeBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button completeBtn;
 
         /// <summary>
         /// clearBtn control.
