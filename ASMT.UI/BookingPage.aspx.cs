@@ -56,7 +56,8 @@ namespace ASMT.UI
                     throw new Exception();
                 }
 
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Booking Id :" + bookingId + " ')", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Booking Id :" + bookingId + " ');", true);
+                Response.Redirect("IndexPage.aspx");
             }
             catch (Exception ex)
             {

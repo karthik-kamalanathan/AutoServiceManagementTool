@@ -82,6 +82,15 @@
                 <div class="modal-body p-5 pt-0">
                     <form class="signInForm" runat="server">
                         <div class="form-floating mb-3">
+                            <asp:DropDownList class="form-control form-select" ID="location" name="location" runat="server" required="required">
+                                <asp:ListItem hidden>Choose...</asp:ListItem>
+                                <asp:ListItem>Kumbakonam</asp:ListItem>
+                                <asp:ListItem>Trichy</asp:ListItem>
+                                <asp:ListItem>Thanjavur</asp:ListItem>
+                            </asp:DropDownList>
+                            <label for="location">Location</label>
+                        </div>
+                        <div class="form-floating mb-3">
                             <asp:TextBox type="text" class="form-control" ID="txtUsername" placeholder="Username" name="username" runat="server" AutoCompleteType="Disabled" />
                             <label for="txtUsername">Username</label>
                         </div>

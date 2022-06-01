@@ -29,6 +29,7 @@ namespace ASMT.UI
 
                 Credential credential = new Credential()
                 {
+                    Location = location.Text,
                     UserName = txtUsername.Text,
                     Password = txtPswd.Text
                 };
