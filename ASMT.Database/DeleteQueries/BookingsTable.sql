@@ -1,2 +1,1 @@
-DELETE FROM [dbo].[Bookings]
-      WHERE BookingId =''
+DELETE FROM [dbo].[Bookings] WHERE BookingId = 0
