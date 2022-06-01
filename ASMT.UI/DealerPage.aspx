@@ -16,7 +16,6 @@
     <!--External Resources-->
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../Content/sidebars.css" rel="stylesheet" />
-    <%--<link href="../Content/modals.css" rel="stylesheet" />--%>
 
     <script src="../Scripts/jquery-3.6.0.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
@@ -32,6 +31,7 @@
         window.onunload = function () { void (0) }
     </script>
 </head>
+
 <body>
     <form runat="server">
 
@@ -157,74 +157,6 @@
             <!-- List Group -->
 
         </main>
-
-        <!-- FullScreen Service Details Modal -->
-        <div class="modal fade" id="serviceDetailsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" runat="server">
-            <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="modal-title mx-3" id="exampleModalLabel">Service Details</h2>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-
-                            <h1 runat="server" id="modalHeader"></h1>
-                            <p runat="server" class="lead" id="modalDescription">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
-                            <br />
-
-                            <div class="row g-3">
-                                <div class="col-sm-6">
-                                    <%--<h3>Name: 
-                                    <small class="text-muted">Karthik Kamalanathan</small>
-                                    </h3>--%>
-                                    <h4>Tasks</h4>
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <h4>Status</h4>
-                                </div>
-                                <asp:Panel ID="modalContentArea" runat="server">
-                                </asp:Panel>
-
-                                <div class="col-sm-6">
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <div class="form-check form-switch form-control-lg">
-                                        <input runat="server" class="form-check-input" type="checkbox" id="invalidid">
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-check form-switch form-control-lg">
-                                        <input class="form-check-input" type="checkbox">
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6">
-                                </div>
-
-                                <div class="col-sm-6">
-                                    <div class="form-check form-switch form-control-lg">
-                                        <input class="form-check-input" type="checkbox">
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-lg btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <asp:Button type="submit" class="mb-2 btn btn-lg btn-primary" runat="server" Text="Save Changes" OnClick="saveChanges" />
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <!-- FullScreen Service Details Modal -->
 
     </form>
 </body>

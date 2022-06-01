@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using ASMT.Dataprovider.Models;
-using ASMT.Dataprovider.Implementations;
 
 namespace ASMT.UI
 {
@@ -51,5 +43,4 @@ namespace ASMT.UI
             }
         }
     }
-
 }

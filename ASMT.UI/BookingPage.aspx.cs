@@ -6,7 +6,7 @@ using System.Web.UI;
 
 namespace ASMT.UI
 {
-    public partial class BookingPage : System.Web.UI.Page
+    public partial class BookingPage : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -56,11 +56,7 @@ namespace ASMT.UI
                     throw new Exception();
                 }
 
-                //Below Code Has Issues
-                string script = "$('#txtBookingId').val(" + bookingId + ");";            
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "none", script, true);
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "modal", "$('#bookingSuccess').modal('show');", true);
-
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Booking Id :" + bookingId + " ')", true);
             }
             catch (Exception ex)
             {
@@ -88,10 +84,10 @@ namespace ASMT.UI
             {
                 var tasks = new Dictionary<string, bool>();
 
-                if (engineOil.Checked)
+                if (engineOil.Checked || serviceType.Text == "1st Service(Free)" || serviceType.Text == "3rd Service(Free)")
                     tasks.Add("EngineOilChange", false);
 
-                if (breakOil.Checked)
+                if (breakOil.Checked || serviceType.Text == "3rd Service(Free)")
                     tasks.Add("BreakOilChange", false);
 
                 if (suspension.Checked)

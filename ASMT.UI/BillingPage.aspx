@@ -16,7 +16,7 @@
     <!--External Resources-->
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
 
-    <style>
+<%--    <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -30,11 +30,11 @@
                 font-size: 3.5rem;
             }
         }
-    </style>
+    </style>--%>
 
     <link href="../Content/form-validation.css" rel="stylesheet" />
-
 </head>
+
 <body class="bg-light">
     <div class="container">
 
@@ -43,7 +43,6 @@
                 <h2>Checkout Form</h2>
                 <p class="lead">Submit the Below Form & Payments Details to Checkout</p>
             </div>
-
 
             <div class="row g-5">
 

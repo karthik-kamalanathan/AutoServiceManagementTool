@@ -16,34 +16,18 @@
     <!--External Resources-->
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link href="../Content/bootstrap-select.min.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../Scripts/jquery.3.6.0.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
     <script src="../Scripts/umd/popper.min.js"></script>
-    <%--<script src="../Scripts/bootstrap.min.js"></script>--%>
     <script src="../Scripts/bootstrap.bundle.min.js"></script>
     <!--External Resources-->
 
-    <!-- Date Selector -->
-<%--    <script type="text/javascript">
-        let startDate = document.getElementById('startDate')
-
-        startDate.addEventListener('change', (e) => {
-            let startDateVal = e.target.value
-            document.getElementById('startDateSelected').innerText = startDateVal
-        })
-    </script>--%>
-
- <%--   <!-- Booking Success Show Modal -->
-    <script type="text/javascript">
-        function openSuccessModal(bookingId) {
-            
-        }
-    </script>--%>
-
     <link href="../Content/modals.css" rel="stylesheet" />
 </head>
+
 <body class="bg-light">
     <div class="container">
+
         <main>
             <!-- Header -->
             <div class="py-5 text-center">
@@ -173,7 +157,6 @@
 
             </form>
             <!-- Booking Form -->
-
         </main>
 
         <!-- Footer -->
@@ -183,24 +166,5 @@
         <!-- Footer -->
 
     </div>
-
-    <!-- Booking Success Modal -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="bookingSuccess" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content shadow">
-                <div class="modal-header p-5 pb-4 border-bottom-0">
-                    <h4>Service Booked Successfully</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.href='IndexPage.aspx'"></button>
-                </div>
-                <div class="modal-body p-5 pt-0">
-                    <h5>Tracking Id</h5>
-                    <input id="txtBookingId" class="form-control" type="text" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly />
-                    <br />
-                    <p class="lead">Please, Use this id to track serive status. thank you.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Booking Success Modal -->
 </body>
 </html>

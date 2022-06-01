@@ -29,6 +29,7 @@ namespace ASMT.Dataprovider.Implementations
                 IsPaymentDone = false,
                 ExpectedDate = booking.CreatedDate + TimeSpan.FromDays(2),
             };
+
             if (service.ServiceTasks != null)
             {
                 trackStatus.TasksTotal = service.ServiceTasks.Count;
@@ -42,6 +43,7 @@ namespace ASMT.Dataprovider.Implementations
             {
                 return barcode;
             }
+
             return string.Empty;
         }
     }

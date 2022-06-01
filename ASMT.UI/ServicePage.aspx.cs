@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ASMT.Dataprovider.Models;
@@ -11,7 +9,7 @@ using System.Web.UI.HtmlControls;
 
 namespace ASMT.UI
 {
-    public partial class ServicePage : System.Web.UI.Page
+    public partial class ServicePage : Page
     {
         Booking bookingData;
         AutoService serviceData;
@@ -23,9 +21,7 @@ namespace ASMT.UI
         {
             try
             {
-                //string bookingId = Request.QueryString["BookingId"];
-
-                string bookingId = "352574334818";
+                string bookingId = Request.QueryString["BookingId"];
 
                 trackService = new TrackService();
                 dealerService = new DealerService();
@@ -47,7 +43,27 @@ namespace ASMT.UI
         {
             try
             {
+                var dataFromModal = new Dictionary<string, bool>();
 
+                foreach (var task in serviceData.ServiceTasks)
+                {
+                    var checkBox = (HtmlInputCheckBox)FindControl("chck" + task.Key.Replace(" ", String.Empty));
+                    if(checkBox != null)
+                    {
+                        dataFromModal.Add(task.Key, checkBox.Checked);
+                    }
+                }
+
+                var changed = dataFromModal.Where(entry => serviceData.ServiceTasks[entry.Key] != entry.Value).ToDictionary(entry => entry.Key, entry => entry.Value);
+
+                if (changed != null)
+                {
+                    serviceData.ServiceTasks = dataFromModal;
+                    dealerService.UpdateService(serviceData);
+
+                    statusData.TasksDone =  serviceData.ServiceTasks.Count(x => x.Value == true);
+                    trackService.UpdateTrackingData(statusData);
+                }
             }
             catch (Exception ex)
             {
@@ -87,12 +103,13 @@ namespace ASMT.UI
         {
             try
             {
-                foreach (string key in serviceData.ServiceTasks.Keys)
+                var Keys = serviceData.ServiceTasks.Keys.ToList();
+                foreach (string key in Keys)
                     serviceData.ServiceTasks[key] = true;
                 serviceData.CompletedDate = DateTime.Now;
-                
+
                 bookingData.CompletedDate = DateTime.Now;
-                
+
                 statusData.TasksDone = statusData.TasksTotal;
                 statusData.IsCompleted = true;
                 statusData.ExpectedDate = DateTime.Now;
@@ -100,6 +117,13 @@ namespace ASMT.UI
                 trackService.UpdateTrackingData(statusData);
                 dealerService.UpdateBooking(bookingData);
                 dealerService.UpdateService(serviceData);
+
+                var checkBoxes = GetAllControls(taskListArea).OfType<HtmlInputCheckBox>().ToList();
+
+                foreach (var check in checkBoxes)
+                {
+                    check.Checked = true;
+                }
             }
             catch (Exception ex)
             {
@@ -133,7 +157,7 @@ namespace ASMT.UI
                 var div = new HtmlGenericControl("div");
                 div.Attributes.Add("class", "form-check");
 
-                var checkBox = new HtmlGenericControl("input")
+                var checkBox = new HtmlInputCheckBox()
                 {
                     ID = "chck" + task.Key.Replace(" ", String.Empty),
                 };
@@ -142,7 +166,11 @@ namespace ASMT.UI
                 checkBox.Attributes.Add("runat", "server");
                 if (task.Value)
                 {
-                    checkBox.Attributes.Add("checked", null);
+                    checkBox.Checked = true;
+                }
+                else
+                {
+                    checkBox.Checked = false;
                 }
 
                 div.Controls.Add(checkBox);
@@ -157,8 +185,18 @@ namespace ASMT.UI
 
                 taskListArea.Controls.Add(div);
             }
-
         }
 
+        private IEnumerable<Control> GetAllControls(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                yield return control;
+                foreach (Control descendant in GetAllControls(control))
+                {
+                    yield return descendant;
+                }
+            }
+        }
     }
 }

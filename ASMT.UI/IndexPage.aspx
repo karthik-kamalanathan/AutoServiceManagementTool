@@ -21,7 +21,7 @@
     <script src="../Scripts/bootstrap.min.js"></script>
     <!--External Resources-->
 
-    <style>
+    <%--<style>
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -35,19 +35,20 @@
                 font-size: 3.5rem;
             }
         }
-    </style>
+    </style>--%>
 
-    <script>
+    <%--<script>
         var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
             trigger: 'focus'
         })
-    </script>
+    </script>--%>
 
     <!-- Custom styles for this template -->
     <link href="../Content/heroes.css" rel="stylesheet" />
     <link href="../Content/footers.css" rel="stylesheet" />
     <link href="../Content/modals.css" rel="stylesheet" />
 </head>
+
 <body>
     <!-- Page Title & Description -->
     <div class="px-4 pt-5 my-5 text-center border-bottom">
@@ -149,5 +150,6 @@
         </footer>
     </div>
     <!-- Footer -->
+
 </body>
 </html>

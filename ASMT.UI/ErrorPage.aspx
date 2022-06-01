@@ -71,18 +71,6 @@
     </script>
     <!-- JavaScript Code to Show Error -->
 
-    <!-- JavaScript Code to Disable Back Button -->
-    <%--<script type="text/javascript">
-        function DisableBackButton() {
-            window.history.forward()
-        }
-        DisableBackButton();
-        window.onload = DisableBackButton;
-        window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
-        window.onunload = function () { void (0) }
-    </script>--%>
-    <!-- JavaScript Code to Disable Back Button -->
-
     <!-- CSS Styles For Texts in Error Page -->
     <style type="text/css">
         @font-face {

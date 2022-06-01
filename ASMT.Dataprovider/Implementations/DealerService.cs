@@ -1,9 +1,6 @@
 ﻿using ASMT.Dataprovider.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ASMT.Dataprovider.Implementations
 {
@@ -75,7 +72,7 @@ namespace ASMT.Dataprovider.Implementations
 
             if (creds != null)
             {
-                if (creds.Location != null && creds.Location != "" && creds.UserName != null && creds.UserName != "" && creds.Password != null && creds.Password != "")
+                if (creds.UserName != null && creds.UserName != "" && creds.Password != null && creds.Password != "")
                     isAuthorized = db.Login(creds);
             }
 

@@ -5,7 +5,7 @@ using ASMT.Dataprovider.Implementations;
 
 namespace ASMT.UI
 {
-    public partial class IndexPage : System.Web.UI.Page
+    public partial class IndexPage : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,7 +29,6 @@ namespace ASMT.UI
 
                 Credential credential = new Credential()
                 {
-                    Location = "Kumbakonam",
                     UserName = txtUsername.Text,
                     Password = txtPswd.Text
                 };

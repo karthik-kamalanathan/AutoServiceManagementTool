@@ -36,7 +36,10 @@ namespace ASMT.Dataprovider.Implementations
                 var cmd = new SqlCommand(sqlCommand, sqlCon);
                 cmd.Parameters.AddWithValue("@BookingId", bookingId);
 
-                sqlCon.Open();
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -58,7 +61,7 @@ namespace ASMT.Dataprovider.Implementations
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             finally
             {
@@ -83,14 +86,17 @@ namespace ASMT.Dataprovider.Implementations
                 cmd.Parameters.AddWithValue("@BookingId", booking.BookingId.ToString());
                 cmd.Parameters.AddWithValue("@CompletedDate", booking.CompletedDate.ToString());
 
-                sqlCon.Open();
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
 
                 cmd.ExecuteNonQuery();
                 isUpdated = true;
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             finally
             {
@@ -116,7 +122,10 @@ namespace ASMT.Dataprovider.Implementations
                 var cmd = new SqlCommand(sqlCommand, sqlCon);
                 cmd.Parameters.AddWithValue("@location", location);
 
-                sqlCon.Open();
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -175,15 +184,17 @@ namespace ASMT.Dataprovider.Implementations
                 cmd.Parameters.AddWithValue("@RequestedDate", booking.RequestedDate.ToString());
                 cmd.Parameters.AddWithValue("@CompletedDate", DBNull.Value);
 
-                sqlCon.Open();
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
 
                 cmd.ExecuteNonQuery();
                 isCreated = true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw;
+                throw ex;
             }
             finally
             {
@@ -234,7 +245,7 @@ namespace ASMT.Dataprovider.Implementations
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             finally
             {
@@ -283,14 +294,17 @@ namespace ASMT.Dataprovider.Implementations
                 else
                     cmd.Parameters.AddWithValue("@CompletedDate", DBNull.Value);
 
-                sqlCon.Open();
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
 
                 cmd.ExecuteNonQuery();
                 isUpdated = true;
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             finally
             {
@@ -341,14 +355,18 @@ namespace ASMT.Dataprovider.Implementations
                 cmd.Parameters.AddWithValue("@RequestedDate", service.RequestedDate.ToString());
                 cmd.Parameters.AddWithValue("@CompletedDate", DBNull.Value);
 
-                sqlCon.Open();
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+
                 cmd.ExecuteNonQuery();
                 isCreated = true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                throw;
+                throw ex;
             }
             finally
             {
@@ -374,7 +392,10 @@ namespace ASMT.Dataprovider.Implementations
                 var cmd = new SqlCommand(sqlCommand, sqlCon);
                 cmd.Parameters.AddWithValue("@BookingId", bookingId);
 
-                sqlCon.Open();
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -391,7 +412,7 @@ namespace ASMT.Dataprovider.Implementations
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             finally
             {
@@ -419,14 +440,17 @@ namespace ASMT.Dataprovider.Implementations
                 cmd.Parameters.AddWithValue("@IsCompleted", trackService.IsCompleted ? 1 : 0);
                 cmd.Parameters.AddWithValue("@ExpectedDate", trackService.ExpectedDate.ToString());
 
-                sqlCon.Open();
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
 
                 cmd.ExecuteNonQuery();
                 isUpdated = true;
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             finally
             {
@@ -454,14 +478,16 @@ namespace ASMT.Dataprovider.Implementations
                 cmd.Parameters.AddWithValue("@IsCompleted", trackService.IsCompleted ? 1 : 0);
                 cmd.Parameters.AddWithValue("@ExpectedDate", trackService.ExpectedDate.ToString());
 
-                sqlCon.Open();
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
                 cmd.ExecuteNonQuery();
                 isCreated = true;
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw;
+                throw ex;
             }
             finally
             {
@@ -482,11 +508,16 @@ namespace ASMT.Dataprovider.Implementations
             try
             {
                 string sqlCommand = "SELECT [Location], [Username], [Password] " +
-                                    "FROM[dbo].[TrackStatus] " +
-                                    "WHERE[Location] = @Location";
+                                    "FROM[dbo].[Credentials] " +
+                                    "WHERE[Username] = @Username";
 
                 var cmd = new SqlCommand(sqlCommand, sqlCon);
-                cmd.Parameters.AddWithValue("@BookingId", credsFromUser.Location);
+                cmd.Parameters.AddWithValue("@Username", credsFromUser.UserName);
+
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
@@ -497,15 +528,14 @@ namespace ASMT.Dataprovider.Implementations
                         credsFromDB.Password = reader["Password"].ToString();
                     }
                 }
-                if (credsFromDB == credsFromUser)
+                if (credsFromDB.UserName == credsFromUser.UserName && credsFromDB.Password == credsFromUser.Password)
                 {
                     isAuthorized = true;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                throw;
+                throw ex;
             }
             finally
             {
