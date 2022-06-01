@@ -60,9 +60,26 @@
     <Folder Include="ReadQueries" />
     <Folder Include="UpdateQueries" />
     <Folder Include="DeleteQueries" />
+    <Folder Include="InsertQueries" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="CreateQueries\BookingTable.sql" />
+    <Build Include="ReadQueries\BookingsTable.sql" />
+    <Build Include="ReadQueries\CredentialsTable.sql" />
+    <Build Include="ReadQueries\ServicesTable.sql" />
+    <Build Include="ReadQueries\TrackStatusTable.sql" />
+    <Build Include="InsertQueries\BookingsTable.sql" />
+    <Build Include="InsertQueries\CredentialsTable.sql" />
+    <Build Include="InsertQueries\ServicesTable.sql" />
+    <Build Include="InsertQueries\TrackStatusTable.sql" />
+    <Build Include="DeleteQueries\BookingsTable.sql" />
+    <Build Include="DeleteQueries\CredentialsTable.sql" />
+    <Build Include="DeleteQueries\ServicesTable.sql" />
+    <Build Include="DeleteQueries\TrackStatusTable.sql" />
+    <Build Include="UpdateQueries\BookingsTable.sql" />
+    <Build Include="UpdateQueries\CredentialsTable.sql" />
+    <Build Include="UpdateQueries\ServicesTable.sql" />
+    <Build Include="UpdateQueries\TrackStatusTable.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="ASMT.Database.refactorlog" />

@@ -1,0 +1,12 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT [BookingId]
+      ,[Location]
+      ,[Name]
+      ,[Phone]
+      ,[Email]
+      ,[VehicleNumber]
+      ,[VehicleModel]
+      ,[CreatedDate]
+      ,[RequestedDate]
+      ,[CompletedDate]
+  FROM [ASMT].[dbo].[Bookings]

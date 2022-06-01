@@ -9,6 +9,5 @@
     [VehicleModel] NVARCHAR(50) NOT NULL, 
     [CreatedDate] NVARCHAR(50) NOT NULL,
     [RequestedDate] NVARCHAR(50) NOT NULL,
-    [CompletedDate] NVARCHAR(50) NULL
-    
+    [CompletedDate] NVARCHAR(50) NULL  
 )
