@@ -54,8 +54,7 @@ namespace ASMT.UI
 
                 bookings = dealerService.GetBookings(location);
 
-                var sortedBookings = bookings.OrderBy(o => o.RequestedDate).ToList();
-                //sortedBookings.RemoveAll(r => r.CompletedDate != DateTime.MinValue);
+                var sortedBookings = bookings.OrderBy(d => d.CompletedDate).ThenBy(o => o.RequestedDate).ToList();
 
                 if (bookings == null || bookings.Count == 0)
                 {

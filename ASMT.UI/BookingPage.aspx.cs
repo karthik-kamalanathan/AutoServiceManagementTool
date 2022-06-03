@@ -12,7 +12,8 @@ namespace ASMT.UI
         {
             try
             {
-
+                serviceDate.Attributes.Add("startDate", DateTime.Now.AddDays(1).ToString("dd-MM-yyyy"));
+                serviceDate.Attributes.Add("endDate", DateTime.Now.AddDays(30).ToString("dd-MM-yyyy"));
             }
             catch (Exception ex)
             {
@@ -56,7 +57,7 @@ namespace ASMT.UI
                     throw new Exception();
                 }
 
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Booking Id :" + bookingId + " ');", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Booking Id :" + bookingId + " ');window.location ='IndexPage.aspx';", true);
             }
             catch (Exception ex)
             {

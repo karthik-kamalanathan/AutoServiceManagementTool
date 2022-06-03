@@ -93,7 +93,7 @@
                     <!-- Service Date -->
                     <div class="col-sm-6">
                         <label for="serviceDate" class="form-label">Service Date</label>
-                        <asp:TextBox type="date" class="form-control" ID="serviceDate" placeholder="" name="serviceDate" runat="server" AutoCompleteType="Disabled" required="required" />
+                        <asp:TextBox type="date" class="form-control" ID="serviceDate" placeholder="" name="serviceDate" runat="server" AutoCompleteType="Disabled" required="required"/>
                         <span id="startDateSelected"></span>
                     </div>
                 </div>

@@ -72,6 +72,11 @@ namespace ASMT.UI
                             check.Disabled = true;
                     }
                 }
+
+                int percentComplete = (int)Math.Round((double)(100 * statusData.TasksDone) / statusData.TasksTotal);
+                progressbar.Style[HtmlTextWriterStyle.Width] = percentComplete + "%";
+                progressbar.Attributes["aria-valuenow"] = percentComplete.ToString();
+                progressbar.InnerText = percentComplete + "%";
             }
             catch (Exception ex)
             {
@@ -134,12 +139,17 @@ namespace ASMT.UI
                     check.Disabled = true;
                 }
 
-                updateBtn.Attributes["class"] += " disabled";                
+                updateBtn.Attributes["class"] += " disabled";
                 completeBtn.Attributes["class"] += " disabled";
                 clearBtn.Attributes["class"] += " disabled";
 
                 status.InnerHtml = "<strong>Staus : </strong> Service Completed";
                 completedDate.InnerHtml = "<strong>Completed Date: </strong>" + bookingData.CompletedDate.ToString("MM/dd/yyyy");
+
+                int percentComplete = (int)Math.Round((double)(100 * statusData.TasksDone) / statusData.TasksTotal);
+                progressbar.Style[HtmlTextWriterStyle.Width] = percentComplete + "%";
+                progressbar.Attributes["aria-valuenow"] = percentComplete.ToString();
+                progressbar.InnerText = percentComplete + "%";
             }
             catch (Exception ex)
             {
@@ -174,7 +184,6 @@ namespace ASMT.UI
                 status.InnerHtml = "<strong>Staus : </strong> Service Still in Progress";
                 completedDate.InnerHtml = "<strong>Expected Date: </strong>" + statusData.ExpectedDate.ToString("MM/dd/yyyy");
             }
-
 
             foreach (var task in serviceData.ServiceTasks)
             {
@@ -221,6 +230,20 @@ namespace ASMT.UI
                 {
                     yield return descendant;
                 }
+            }
+        }
+
+        protected void GoToDealersPage(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("DealerPage.aspx?Location=" + bookingData.Location, false);
+                Context.ApplicationInstance.CompleteRequest();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Response.Redirect("ErrorPage.aspx");
             }
         }
     }

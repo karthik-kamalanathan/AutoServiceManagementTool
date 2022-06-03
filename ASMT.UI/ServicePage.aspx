@@ -85,7 +85,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="nav-link active">
+                            <a href="#" class="nav-link active" runat="server" onserverclick="GoToDealersPage">
                                 <svg class="bi me-2" width="16" height="16">
                                     <use xlink:href="#table" />
                                 </svg>
