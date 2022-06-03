@@ -79,7 +79,7 @@
                                 <input type="text" class="form-control form-control-lg" id="amount" placeholder="" runat="server" disabled readonly>
                             </div>
                             <div class="col-auto mx-5">
-                                <button type="submit" class="btn btn-primary btn-lg" runat="server" id="payBtn" onclick="BillingPage.aspx">Pay & Chcekout</button>
+                                <asp:Button class="btn btn-primary btn-lg" type="submit" Text="Pay & Chcekout" id="payBtn" runat="server" OnClick="PayBill" />
                             </div>
                         </div>
                     </div>

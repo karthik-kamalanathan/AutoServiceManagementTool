@@ -4,7 +4,7 @@ using ASMT.Dataprovider.Implementations;
 
 namespace ASMT.UI
 {
-    public partial class TrackingPage :Page
+    public partial class TrackingPage : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -58,8 +58,9 @@ namespace ASMT.UI
                     if (trackStatus.IsCompleted && !trackStatus.IsPaymentDone)
                     {
                         billDetails.Visible = true;
+                        amount.Value = CalculateAmount(bookingId);
                     }
-                    else if(trackStatus.IsCompleted && trackStatus.IsPaymentDone)
+                    else if (trackStatus.IsCompleted && trackStatus.IsPaymentDone)
                     {
                         billDetails.Visible = true;
                         paymentText.Visible = true;
@@ -69,6 +70,58 @@ namespace ASMT.UI
                         payBtn.Visible = false;
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Response.Redirect("ErrorPage.aspx");
+            }
+        }
+
+        private string CalculateAmount(string bookingId)
+        {
+            try
+            {
+                string amount = "";
+
+                double totalCharge = 0;
+                double baseCharge = 300;
+
+                DealerService dealerService = new DealerService();
+                var service = dealerService.GetServiceData(bookingId);
+
+                totalCharge += baseCharge;
+
+                if (service.ServiceTasks.ContainsKey("EngineOilChange"))
+                {
+                    totalCharge += 800;
+                }
+
+                if (service.ServiceTasks.ContainsKey("BreakOilChange"))
+                {
+                    totalCharge += 300;
+                }
+
+                double GST = (totalCharge / 100) * 18 * 2;
+
+                totalCharge += GST;
+
+                amount = Math.Round(totalCharge, 2).ToString();
+
+                return amount;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        protected void PayBill(object sender, EventArgs e)
+        {
+            try
+            {
+                Response.Redirect("BillingPage.aspx?BillAmount=" + amount.Value.Replace(".", "_"), false);
             }
             catch (Exception ex)
             {

@@ -85,10 +85,20 @@ namespace ASMT.UI
                 var tasks = new Dictionary<string, bool>();
 
                 if (engineOil.Checked || serviceType.Text == "1st Service(Free)" || serviceType.Text == "3rd Service(Free)")
+                {
+                    if (engineOil.Checked != true)
+                        engineOil.Checked = true;
+
                     tasks.Add("EngineOilChange", false);
+                }
 
                 if (breakOil.Checked || serviceType.Text == "3rd Service(Free)")
+                {
+                    if (breakOil.Checked != true)
+                        breakOil.Checked = true;
+
                     tasks.Add("BreakOilChange", false);
+                }
 
                 if (suspension.Checked)
                     tasks.Add("AdjustSuspension", false);
