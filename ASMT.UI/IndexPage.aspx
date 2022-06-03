@@ -65,6 +65,8 @@
                                 <asp:ListItem>Kumbakonam</asp:ListItem>
                                 <asp:ListItem>Trichy</asp:ListItem>
                                 <asp:ListItem>Thanjavur</asp:ListItem>
+                                <asp:ListItem>Chennai</asp:ListItem>
+                                <asp:ListItem>Coimbatore</asp:ListItem>
                             </asp:DropDownList>
                             <label for="location">Location</label>
                         </div>
