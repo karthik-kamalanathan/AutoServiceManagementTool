@@ -55,7 +55,7 @@ namespace ASMT.UI
                 bookings = dealerService.GetBookings(location);
 
                 var sortedBookings = bookings.OrderBy(o => o.RequestedDate).ToList();
-                sortedBookings.RemoveAll(r => r.CompletedDate != DateTime.MinValue);
+                //sortedBookings.RemoveAll(r => r.CompletedDate != DateTime.MinValue);
 
                 if (bookings == null || bookings.Count == 0)
                 {
@@ -79,14 +79,22 @@ namespace ASMT.UI
                 }
                 else
                 {
-                    foreach (var booking in bookings)
+                    foreach (var booking in sortedBookings)
                     {
                         var serviceElement = new LinkButton();
                         serviceElement.Click += new EventHandler(OnClickListItem);
                         serviceElement.ID = "B" + booking.BookingId.ToString();
-                        serviceElement.Attributes.Add("class", "list-group-item list-group-item-action py-3 lh-tight");
                         serviceElement.Attributes.Add("aria-current", "true");
                         serviceElement.Attributes.Add("runat", "server");
+
+                        if (booking.CompletedDate != DateTime.MinValue)
+                        {
+                            serviceElement.Attributes.Add("class", "list-group-item list-group-item-action py-3 lh-tight bg-success bg-gradient");
+                        }
+                        else
+                        {
+                            serviceElement.Attributes.Add("class", "list-group-item list-group-item-action py-3 lh-tight");
+                        }
 
                         var divContent = new HtmlGenericControl("div");
                         divContent.Attributes.Add("class", "d-flex w-100 align-items-center justify-content-between");
