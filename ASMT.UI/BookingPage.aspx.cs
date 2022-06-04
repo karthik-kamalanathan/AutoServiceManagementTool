@@ -57,7 +57,7 @@ namespace ASMT.UI
                     throw new Exception();
                 }
 
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Booking Id :" + bookingId + " ');window.location ='IndexPage.aspx';", true);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Booking Id : \'" + bookingId + "\' ');window.location ='IndexPage.aspx';", true);
             }
             catch (Exception ex)
             {
@@ -85,7 +85,7 @@ namespace ASMT.UI
             {
                 var tasks = new Dictionary<string, bool>();
 
-                if (engineOil.Checked || serviceType.Text == "1st Service(Free)" || serviceType.Text == "3rd Service(Free)")
+                if (engineOil.Checked || serviceType.Text == "1st Service (Free)" || serviceType.Text == "3rd Service (Free)")
                 {
                     if (engineOil.Checked != true)
                         engineOil.Checked = true;

@@ -27,7 +27,7 @@ namespace ASMT.Dataprovider.Implementations
                 TasksDone = 0,
                 IsCompleted = false,
                 IsPaymentDone = false,
-                ExpectedDate = booking.CreatedDate + TimeSpan.FromDays(2),
+                ExpectedDate = booking.RequestedDate + TimeSpan.FromDays(2),
             };
 
             if (service.ServiceTasks != null)
