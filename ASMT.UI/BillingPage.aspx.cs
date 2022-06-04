@@ -8,7 +8,7 @@ namespace ASMT.UI
         {
             try
             {
-
+                var amount = Request.QueryString["BillAmount"];
             }
             catch (Exception ex)
             {
