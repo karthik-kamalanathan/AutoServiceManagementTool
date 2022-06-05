@@ -50,7 +50,7 @@ namespace ASMT.UI
                 };
 
                 string alertMessage;
-                if (!ValidateBookingDetails(booking, service, out alertMessage))
+                if (!ValidateBookingDetails(out alertMessage))
                 {
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + alertMessage + "');", true);
                     return;
@@ -130,7 +130,7 @@ namespace ASMT.UI
             return null;
         }
 
-        private bool ValidateBookingDetails(Booking booking, AutoService service, out string alertMessage)
+        private bool ValidateBookingDetails(out string alertMessage)
         {
             bool isValid = true;
             alertMessage = "";
@@ -146,7 +146,7 @@ namespace ASMT.UI
                         alertMessage += "- First Name is more than 15 characters ";
                     }
 
-                    if (firstName.Text.All(char.IsLetter))
+                    if (firstName.Text.Trim().All(char.IsLetter))
                     {
                         isValid = false;
                         alertMessage += "- First Name contains invalid characters ";
@@ -166,7 +166,7 @@ namespace ASMT.UI
                         alertMessage += "- Last Name is more than 15 characters ";
                     }
 
-                    if (lastName.Text.All(char.IsLetter))
+                    if (lastName.Text.Trim().All(char.IsLetter))
                     {
                         isValid = false;
                         alertMessage += "- Last Name contains invalid characters ";
@@ -186,7 +186,7 @@ namespace ASMT.UI
                         alertMessage += "- Phone Number is more than 10 characters ";
                     }
 
-                    if (phonenum.Text.All(char.IsDigit))
+                    if (phonenum.Text.Trim().All(char.IsDigit))
                     {
                         isValid = false;
                         alertMessage += "- Phone Number contains invalid characters ";
