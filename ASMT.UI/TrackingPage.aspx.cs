@@ -27,9 +27,10 @@ namespace ASMT.UI
             {
                 string bookingId = trackingId.Text;
 
-                if (ValidateTrackingId(bookingId))
+                string alertMessage;
+                if (!ValidateTrackingId(bookingId, out alertMessage))
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Tracking Id : " + bookingId + " is invalid. \nEnter Valid Tracking Id');", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + alertMessage + "');", true);
                     return;
                 }
 
@@ -129,21 +130,38 @@ namespace ASMT.UI
             }
         }
 
-        private bool ValidateTrackingId(string bookingId)
+        private bool ValidateTrackingId(string bookingId, out string alertMessage)
         {
+            bool isValid = true;
             try
             {
-                if (bookingId.Length == 12 && bookingId.All(char.IsDigit) && bookingId != null && bookingId != "")
+                alertMessage = "";
+                if (bookingId != null && bookingId != "")
                 {
-                    return true;
+                    if (bookingId.Length != 12)
+                    {
+                        isValid = false;
+                        alertMessage += "\n * Tracking Id is more than 12 characters";
+                    }
+                    if (!bookingId.All(char.IsDigit))
+                    {
+                        isValid = false;
+                        alertMessage += "\n * Tracking Id has other than digit characters";
+                    }
+                }
+                else
+                {
+                    isValid = false;
+                    alertMessage += "\n * Tracking Id is null or Empty";
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                alertMessage = "Wrong Tracking Id";
                 return false;
             }
-            return false;
+            return isValid;
         }
 
         protected void PayBill(object sender, EventArgs e)
