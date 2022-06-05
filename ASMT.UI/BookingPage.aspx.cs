@@ -255,6 +255,32 @@ namespace ASMT.UI
                     isValid = false;
                     alertMessage += "- Service Type is null or Empty ";
                 }
+
+                if(serviceDate.Text != "" && serviceDate.Text != null)
+                {
+                    DateTime dateToCheck = DateTime.Parse(serviceDate.Text);
+                    DateTime startDate = DateTime.Now.AddDays(1);
+                    DateTime endDate = startDate.AddDays(30);
+
+                    if(dateToCheck == DateTime.MinValue)
+                    {
+                        isValid = false;
+                        alertMessage += "- Service Date is invalid ";
+                    }
+                    else
+                    {
+                        if(!(dateToCheck >= startDate && dateToCheck < endDate))
+                        {
+                            isValid = false;
+                            alertMessage += "- Service Date should be in range " + startDate.ToString("MM/dd/yyyy") + " to " + endDate.ToString("MM/dd/yyyy") + " ";
+                        }
+                    }
+                }
+                else
+                {
+                    isValid = false;
+                    alertMessage += "- Service Date is null or Empty ";
+                }
             }
             catch (Exception ex)
             {

@@ -15,6 +15,7 @@
 
     <!--External Resources-->
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-datepicker3.min.css" rel="stylesheet" />
     <link href="Content/bootstrap-select.min.css" rel="stylesheet" />
     <script src="Scripts/jquery.3.6.0.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
@@ -22,6 +23,14 @@
     <script src="Scripts/bootstrap.bundle.min.js"></script>
     <link href="Content/modals.css" rel="stylesheet" />
     <!--External Resources-->
+
+    <script>
+        $('#datepicker').datepicker({
+            startDate: "+1d",
+            endDate: "+30d",
+            daysOfWeekDisabled: "0"
+        });
+    </script>
 
 </head>
 
@@ -93,7 +102,7 @@
                     <!-- Service Date -->
                     <div class="col-sm-6">
                         <label for="serviceDate" class="form-label">Service Date</label>
-                        <asp:TextBox type="date" class="form-control" ID="serviceDate" placeholder="" name="serviceDate" runat="server" AutoCompleteType="Disabled" required="required" />
+                        <asp:TextBox type="date" class="form-control datepicker" ID="serviceDate" placeholder="" name="serviceDate" runat="server" AutoCompleteType="Disabled" required="required" />
                         <span id="startDateSelected"></span>
                     </div>
                 </div>
