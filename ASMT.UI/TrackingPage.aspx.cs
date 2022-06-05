@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.UI;
 using ASMT.Dataprovider.Implementations;
+using System.Linq;
 
 namespace ASMT.UI
 {
@@ -26,10 +27,22 @@ namespace ASMT.UI
             {
                 string bookingId = trackingId.Text;
 
+                if (ValidateTrackingId(bookingId))
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Tracking Id : " + bookingId + " is invalid. \nEnter Valid Tracking Id');", true);
+                    return;
+                }
+
                 TrackService trackService = new TrackService();
 
                 var trackStatus = trackService.GetBookingStatus(bookingId);
                 var booking = trackService.GetBookingData(bookingId);
+
+                if (trackStatus == null || booking == null)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Tracking Id : " + bookingId + " is invalid. \nEnter Valid Tracking Id');", true);
+                    return;
+                }
 
                 int percentComplete = (int)Math.Round((double)(100 * trackStatus.TasksDone) / trackStatus.TasksTotal);
 
@@ -116,6 +129,22 @@ namespace ASMT.UI
             }
         }
 
+        private bool ValidateTrackingId(string bookingId)
+        {
+            try
+            {
+                if (bookingId.Length == 12 && bookingId.All(char.IsDigit) && bookingId != null && bookingId != "")
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return false;
+            }
+            return false;
+        }
 
         protected void PayBill(object sender, EventArgs e)
         {
