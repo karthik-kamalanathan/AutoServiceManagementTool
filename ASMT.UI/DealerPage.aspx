@@ -14,12 +14,12 @@
     <title>ASMT - Auto Service & Management Tool</title>
 
     <!--External Resources-->
-    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="../Content/sidebars.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/sidebars.css" rel="stylesheet" />
 
-    <script src="../Scripts/jquery-3.6.0.js"></script>
-    <script src="../Scripts/bootstrap.min.js"></script>
-    <script src="../Scripts/umd/popper.min.js"></script>
+    <script src="Scripts/jquery-3.6.0.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+
 
     <script type="text/javascript">
         function DisableBackButton() {
