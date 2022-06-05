@@ -14,15 +14,15 @@
     <title>ASMT - Auto Service & Management Tool</title>
 
     <!--External Resources-->
-    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="../Content/bootstrap-select.min.css" rel="stylesheet" />
-    <script src="../Scripts/jquery.3.6.0.min.js"></script>
-    <script src="../Scripts/bootstrap.min.js"></script>
-    <script src="../Scripts/umd/popper.min.js"></script>
-    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-select.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery.3.6.0.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/umd/popper.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <link href="Content/modals.css" rel="stylesheet" />
     <!--External Resources-->
 
-    <link href="../Content/modals.css" rel="stylesheet" />
 </head>
 
 <body class="bg-light">
@@ -93,7 +93,7 @@
                     <!-- Service Date -->
                     <div class="col-sm-6">
                         <label for="serviceDate" class="form-label">Service Date</label>
-                        <asp:TextBox type="date" class="form-control" ID="serviceDate" placeholder="" name="serviceDate" runat="server" AutoCompleteType="Disabled" required="required"/>
+                        <asp:TextBox type="date" class="form-control" ID="serviceDate" placeholder="" name="serviceDate" runat="server" AutoCompleteType="Disabled" required="required" />
                         <span id="startDateSelected"></span>
                     </div>
                 </div>
@@ -146,11 +146,10 @@
                     </div>
 
                     <!-- Service Instructions Text Area -->
-                    <div class="col-sm-12">
+                    <%--<div class="col-sm-12">
                         <label for="serviceIns" class="form-label">Service Instructions<span class="text-muted">(Optional)</span></label>
                         <asp:TextBox type="text" class="form-control" ID="serviceIns" TextMode="MultiLine" placeholder="" name="serviceIns" runat="server" AutoCompleteType="Disabled" />
-                    </div>
-
+                    </div>--%>
                 </div>
                 <hr class="my-4" />
 
