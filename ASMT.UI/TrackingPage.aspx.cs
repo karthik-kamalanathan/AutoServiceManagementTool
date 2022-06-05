@@ -141,18 +141,18 @@ namespace ASMT.UI
                     if (bookingId.Length != 12)
                     {
                         isValid = false;
-                        alertMessage += "\n * Tracking Id is more than 12 characters";
+                        alertMessage += "- Tracking Id is more than 12 characters ";
                     }
                     if (!bookingId.All(char.IsDigit))
                     {
                         isValid = false;
-                        alertMessage += "\n * Tracking Id has other than digit characters";
+                        alertMessage += "- Tracking Id has other than digit characters ";
                     }
                 }
                 else
                 {
                     isValid = false;
-                    alertMessage += "\n * Tracking Id is null or Empty";
+                    alertMessage += "- Tracking Id is null or Empty ";
                 }
             }
             catch (Exception ex)

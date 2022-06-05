@@ -38,7 +38,7 @@ namespace ASMT.UI
                 string alertMessage;
                 if (!ValidateCredentials(credential, out alertMessage))
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + alertMessage + "')", true);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + alertMessage + "');", true);
                     return;
                 }
 
@@ -66,7 +66,7 @@ namespace ASMT.UI
             bool isValid = true;
             try
             {
-                alertMessage = "Following Values are Wrong or Invalid:";
+                alertMessage = "Following Values are Wrong or Invalid: ";
 
                 if (credential.UserName != null && credential.UserName != "")
                 {
@@ -74,19 +74,19 @@ namespace ASMT.UI
                     if (credential.UserName.Length > 12)
                     {
                         isValid = false;
-                        alertMessage += "\n * Username is more than 12 characters";
+                        alertMessage += "- Username is more than 12 characters ";
                     }
 
                     if (!credential.UserName.All(char.IsLetter))
                     {
                         isValid = false;
-                        alertMessage += "\n * Username contains characters other than Alphabets";
+                        alertMessage += "- Username contains characters other than Alphabets ";
                     }
                 }
                 else
                 {
                     isValid = false;
-                    alertMessage += "\n * username is Empty or Null";
+                    alertMessage += "- username is Empty or Null ";
                 }
 
                 if (credential.Password != null && credential.Password != "")
@@ -94,13 +94,13 @@ namespace ASMT.UI
                     if (credential.Password.Length > 12)
                     {
                         isValid = false;
-                        alertMessage += "\n * Password is more than 12 characters";
+                        alertMessage += "- Password is more than 12 characters ";
                     }
                 }
                 else
                 {
                     isValid = false;
-                    alertMessage += "\n * password is Empty or Null";
+                    alertMessage += "- password is Empty or Null ";
                 }
 
                 if (credential.Location != null && credential.Location != "")
@@ -108,13 +108,13 @@ namespace ASMT.UI
                     if (credential.Location == "Choose...")
                     {
                         isValid = false;
-                        alertMessage += "\n * Location is not choosed";
+                        alertMessage += "- Location is not choosed ";
                     }
                 }
                 else
                 {
                     isValid = false;
-                    alertMessage += "\n * Location is Empty or Null";
+                    alertMessage += "- Location is Empty or Null ";
                 }
             }
             catch (Exception ex)
