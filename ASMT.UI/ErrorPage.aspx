@@ -16,9 +16,9 @@
     <title>Error</title>
 
     <!-- Internal Resources -->
-    <link type="text/css" rel="stylesheet" href="../Content/Error/style.css" />
-    <script type="text/javascript" async="" src="../Content/Error/analytics.js.download" nonce="c7346b97-7260-4d19-bd36-3d901d2bad85"></script>
-    <script defer="" referrerpolicy="origin" src="../Content/Error/s.js.download"></script>
+    <link type="text/css" rel="stylesheet" href="Content/Error/style.css" />
+    <script type="text/javascript" async="" src="Content/Error/analytics.js.download" nonce="c7346b97-7260-4d19-bd36-3d901d2bad85"></script>
+    <script defer="" referrerpolicy="origin" src="Content/Error/s.js.download"></script>
     <!-- Internal Resources -->
 
     <!-- JavaScript Code to Show Error -->

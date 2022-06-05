@@ -14,17 +14,17 @@
     <title>ASMT - Auto Service & Management Tool</title>
 
     <!--External Resources-->
-    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
-    <script src="../Scripts/umd/popper.min.js"></script>
-    <script src="../Scripts/bootstrap.bundle.min.js"></script>
-    <script src="../Scripts/jquery-3.6.0.slim.js"></script>
-    <script src="../Scripts/bootstrap.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/umd/popper.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <script src="Scripts/jquery-3.6.0.slim.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
     <!--External Resources-->
 
     <!-- Custom styles for this template -->
-    <link href="../Content/heroes.css" rel="stylesheet" />
-    <link href="../Content/footers.css" rel="stylesheet" />
-    <link href="../Content/modals.css" rel="stylesheet" />
+    <link href="Content/heroes.css" rel="stylesheet" />
+    <link href="Content/footers.css" rel="stylesheet" />
+    <link href="Content/modals.css" rel="stylesheet" />
 </head>
 
 <body>

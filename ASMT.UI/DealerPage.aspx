@@ -16,7 +16,6 @@
     <!--External Resources-->
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/sidebars.css" rel="stylesheet" />
-
     <script src="Scripts/jquery-3.6.0.min.js"></script>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
 
