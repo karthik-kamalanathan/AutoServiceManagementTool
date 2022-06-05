@@ -35,8 +35,10 @@ namespace ASMT.UI
                     Password = txtPswd.Text
                 };
 
-                if (ValidateCredentials(credential))
+                string alertMessage;
+                if (!ValidateCredentials(credential, out alertMessage))
                 {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + alertMessage + "')", true);
                     return;
                 }
 
@@ -59,12 +61,12 @@ namespace ASMT.UI
             }
         }
 
-        private bool ValidateCredentials(Credential credential)
+        private bool ValidateCredentials(Credential credential, out string alertMessage)
         {
             bool isValid = true;
             try
             {
-                string alertMessage = "Following Values are Wrong or Invalid:";
+                alertMessage = "Following Values are Wrong or Invalid:";
 
                 if (credential.UserName != null && credential.UserName != "")
                 {
@@ -118,6 +120,7 @@ namespace ASMT.UI
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                alertMessage = "Wrong Credentials";
                 return false;
             }
             return isValid;
