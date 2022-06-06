@@ -27,6 +27,13 @@ namespace ASMT.UI
             {
                 BookingService bookingService = new BookingService();
 
+                string alertMessage;
+                if (!ValidateBookingDetails(out alertMessage))
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + alertMessage + "');", true);
+                    return;
+                }
+
                 Booking booking = new Booking()
                 {
                     CreatedDate = DateTime.Now,
@@ -48,13 +55,6 @@ namespace ASMT.UI
                     ServiceTasks = ReadServiceTasks(),
                     ServiceInstructions = ""
                 };
-
-                string alertMessage;
-                if (!ValidateBookingDetails(out alertMessage))
-                {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + alertMessage + "');", true);
-                    return;
-                }
 
                 string bookingId = bookingService.BookAService(booking, service);
 
@@ -146,7 +146,7 @@ namespace ASMT.UI
                         alertMessage += "- First Name is more than 15 characters ";
                     }
 
-                    if (firstName.Text.Trim().All(char.IsLetter))
+                    if (!firstName.Text.Trim().All(char.IsLetter))
                     {
                         isValid = false;
                         alertMessage += "- First Name contains invalid characters ";
@@ -166,7 +166,7 @@ namespace ASMT.UI
                         alertMessage += "- Last Name is more than 15 characters ";
                     }
 
-                    if (lastName.Text.Trim().All(char.IsLetter))
+                    if (!lastName.Text.Trim().All(char.IsLetter))
                     {
                         isValid = false;
                         alertMessage += "- Last Name contains invalid characters ";
@@ -180,13 +180,13 @@ namespace ASMT.UI
 
                 if (phonenum.Text != "" && phonenum.Text != null)
                 {
-                    if (phonenum.Text.Length > 10)
+                    if (phonenum.Text.Length != 10)
                     {
                         isValid = false;
                         alertMessage += "- Phone Number is more than 10 characters ";
                     }
 
-                    if (phonenum.Text.Trim().All(char.IsDigit))
+                    if (!phonenum.Text.Trim().All(char.IsDigit))
                     {
                         isValid = false;
                         alertMessage += "- Phone Number contains invalid characters ";
@@ -222,6 +222,10 @@ namespace ASMT.UI
                     var arr = vehicleNum.Text.Trim().Replace(" ", "").ToCharArray();
                     if (char.IsLetter(arr[0]) && char.IsLetter(arr[1]) && char.IsDigit(arr[2]) && char.IsDigit(arr[3]) && char.IsLetter(arr[4]) && char.IsDigit(arr[5]))
                     {
+                        
+                    }
+                    else
+                    {
                         isValid = false;
                         alertMessage += "- vehicleNum is not valid ";
                     }
@@ -256,20 +260,20 @@ namespace ASMT.UI
                     alertMessage += "- Service Type is null or Empty ";
                 }
 
-                if(serviceDate.Text != "" && serviceDate.Text != null)
+                if (serviceDate.Text != "" && serviceDate.Text != null)
                 {
                     DateTime dateToCheck = DateTime.Parse(serviceDate.Text);
                     DateTime startDate = DateTime.Now.AddDays(1);
                     DateTime endDate = startDate.AddDays(30);
 
-                    if(dateToCheck == DateTime.MinValue)
+                    if (dateToCheck == DateTime.MinValue)
                     {
                         isValid = false;
                         alertMessage += "- Service Date is invalid ";
                     }
                     else
                     {
-                        if(!(dateToCheck >= startDate && dateToCheck < endDate))
+                        if (!(dateToCheck >= startDate && dateToCheck < endDate))
                         {
                             isValid = false;
                             alertMessage += "- Service Date should be in range " + startDate.ToString("MM/dd/yyyy") + " to " + endDate.ToString("MM/dd/yyyy") + " ";
